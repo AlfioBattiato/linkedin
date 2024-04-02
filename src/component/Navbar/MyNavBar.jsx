@@ -6,6 +6,8 @@ import "./navbar.css";
 
 import { Form } from "react-bootstrap";
 import MyButton from "../MyButton";
+import { Link, Navigate } from "react-router-dom";
+
 
 
 function MyNavBar() {
@@ -73,7 +75,7 @@ function MyNavBar() {
                       <div>
                         <p className="fw-semibold">Amanda Marchetti</p>
                         <p>Full Stack Developer</p>
-                        <MyButton text={"Visualizza Profilo"} colore={"primary"}></MyButton>
+                        <MyButton text={"Visualizza Profilo"} colore={"primary"} link={"/Profilo"} ></MyButton>
                       </div>
                     </div>
                   </div>
