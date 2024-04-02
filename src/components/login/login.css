@@ -7,30 +7,18 @@
 }
 
 .card102 {
-  /* margin-top: 100px; */
   border-radius: 12px;
+  margin-top: 100px;
 }
 
-.card101 {
-  position: relative;
-  top: 150px;
-}
-
-.first101 {
-  border-radius: 12px;
-  max-width: 100%;
-  display: block;
-  height: auto;
-}
-
-.second101 {
-  background: #fff;
-  border-radius: 12px;
-  width: 60%;
+@media (max-width: 768px) {
+  .card102 {
+    margin-top: 0;
+  }
 }
 
 .welcome101 {
-  margin-top: 130px;
+  margin-top: 4rem;
   font-size: 23px;
 }
 
@@ -63,7 +51,7 @@
 }
 
 .btn {
-  border-radius: 0%;
+  margin-top: 1rem;
   font-size: 11px;
   font-weight: bold;
 }
@@ -72,11 +60,4 @@
   font-size: 8px;
   color: #42a5f5;
   padding-top: 40px;
-}
-
-.lower {
-  font-size: 8px;
-  color: #42a5f5;
-  position: relative;
-  top: 90%;
 }

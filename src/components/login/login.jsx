@@ -9,7 +9,7 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
         <Col xs={12} sm={12} md={4} lg={4} className="card card102 justify-content-center">
           <Row>
             {/* logo linkedin */}
-            <Col lg={12} className="first101">
+            <Col>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="loader__linkedin-logo"
@@ -31,7 +31,7 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
 
           <Row className=" justify-content-center">
             <Col xs={12} sm={12} md={12} lg={8}>
-              <h4 className="welcome101 text-primary">Accedi</h4>
+              <h4 className="welcome101">Accedi</h4>
             </Col>
 
             {/* form */}
@@ -68,15 +68,15 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
           </Row>
 
           <Row className="justify-content-center">
-            <Col sm={4} className="under101">
+            <Col className="under101">
               <span>Copyright Policy</span>
               <p>User Agreement</p>
             </Col>
-            <Col sm={4} className="under101">
+            <Col className="under101">
               <span>Privacy Policy</span>
               <p>Cookie Policy</p>
             </Col>
-            <Col sm={4} className="under101">
+            <Col className="under101">
               <span>Send Feedback</span>
               <p>Community Guidelines</p>
             </Col>
