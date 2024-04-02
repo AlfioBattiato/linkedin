@@ -15,15 +15,15 @@ function App() {
   return (
     <div className='' >
       <BrowserRouter>
-      <MyNavBar></MyNavBar>
+      {/* <MyNavBar></MyNavBar> */}
       <Routes>
-        <Route path="/Home" element={<Home />}/>
+        {/* <Route path="/Home" element={<Home />}/>
         <Route path="/Lavoro" element={<Lavoro />}/>
         <Route path="/Messagistica" element={<Messagistica />}/>
         <Route path="/Notifiche" element={<Notifiche />}/>
         <Route path="/Rete" element={<Rete />}/>
         <Route path="/Profilo" element={<Profilo></Profilo>}/>
-        <Route path="/" element={<Login></Login>}/>
+        <Route path="/" element={<Login></Login>}/> */}
       </Routes>
       </BrowserRouter>
     </div>
