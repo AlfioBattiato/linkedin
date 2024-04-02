@@ -1,0 +1,10 @@
+:root{
+    --darkblue:#004182;
+}
+
+.darkBlue{
+    color: var(--darkblue)!important;
+}
+.sizeSmall{
+    font-size: 14px!important;
+}
