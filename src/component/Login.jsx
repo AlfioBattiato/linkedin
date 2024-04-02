@@ -1,14 +1,12 @@
 import React from "react";
-
-
 import { Row, Col, Container,} from "react-bootstrap";
 import MyButton from "./MyButton";
 
 function Login({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="box">
-      {/* <Container fluid>
-      <Row >
+      <Container fluid>
+      <Row className="w-100 mx-auto">
         <Col xs={12} md={4} ></Col>
         <Col xs={12} md={4} className="mt-5 bg-white pb-3 ">
           <div className="text-center">
@@ -44,7 +42,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
         </Col>
         <Col xs={12} md={4}  ></Col>
       </Row>
-      </Container> */}
+      </Container>
     </div>
 
   );
