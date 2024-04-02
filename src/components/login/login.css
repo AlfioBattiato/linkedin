@@ -1,0 +1,82 @@
+.box {
+  background: #eee;
+  height: 100vh;
+  background-image: url("https://i.imgur.com/aeidEH1.jpg");
+  background-size: 100%;
+  background-repeat: round;
+}
+
+.card102 {
+  margin-top: 100px;
+  border-radius: 12px;
+}
+
+.card101 {
+  position: relative;
+  top: 150px;
+}
+
+.first101 {
+  border-radius: 12px;
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+.second101 {
+  background: #fff;
+  border-radius: 12px;
+  width: 60%;
+}
+
+.welcome101 {
+  margin-top: 130px;
+  font-size: 23px;
+}
+
+.sign-form-group {
+  padding-top: 8px;
+  font-size: 12px;
+}
+
+.form-signin {
+  background: #e3f2fd;
+  margin-top: 10px;
+  font-size: 9px;
+  font-weight: bold;
+  color: #fff;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.form-signin:focus {
+  box-shadow: none;
+}
+
+.forgot101 {
+  padding-top: 7px;
+  color: #42a5f5;
+}
+
+.space101 {
+  padding-top: 28px;
+}
+
+.btn {
+  border-radius: 0%;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.under101 {
+  font-size: 8px;
+  color: #42a5f5;
+  padding-top: 40px;
+}
+
+.lower {
+  font-size: 8px;
+  color: #42a5f5;
+  position: relative;
+  top: 90%;
+}
