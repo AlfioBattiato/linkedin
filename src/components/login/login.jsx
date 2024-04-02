@@ -1,7 +1,6 @@
 import React from "react";
 import "./login.css";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 export default function Login({ isLoggedIn, setIsLoggedIn }) {
   return (
@@ -9,6 +8,7 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
       <Row className=" justify-content-center ">
         <Col xs={12} sm={12} md={4} lg={4} className="card card102 justify-content-center">
           <Row>
+            {/* logo linkedin */}
             <Col lg={12} className="first101">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -33,30 +33,41 @@ export default function Login({ isLoggedIn, setIsLoggedIn }) {
             <Col xs={12} sm={12} md={12} lg={8}>
               <h4 className="welcome101 text-primary">Accedi</h4>
             </Col>
+
+            {/* form */}
             <Col xs={12} sm={12} md={12} lg={8}>
               <Form.Group className="sign-form-group">
                 <Form.Control type="email" placeholder="Email or Phone" className="form-control form-signin" />
                 <Form.Control type="password" placeholder="Password" className="form-control form-signin" />
+                <div className="mb-3">
+                  <div className="custom-control custom-checkbox">
+                    <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                    <label className="custom-control-label mt-2" htmlFor="customCheck1">
+                      Ricordami
+                    </label>
+                  </div>
+                </div>
+                <Row className="space101">
+                  <Col>
+                    <Button variant="primary" className="btn">
+                      Accedi
+                    </Button>{" "}
+                  </Col>
+                  <Col>
+                    {" "}
+                    <Button variant="primary" className="btn">
+                      Registrati
+                    </Button>{" "}
+                  </Col>
+                </Row>
                 <div className="forgot101">
                   <span>Password dimenticata?</span>
                 </div>
               </Form.Group>
             </Col>
           </Row>
-          <Row className="space101">
-            <Col>
-              <Button variant="primary" className="btn">
-                Accedi
-              </Button>{" "}
-            </Col>
-            <Col>
-              {" "}
-              <Button variant="primary" className="btn">
-                Registrati
-              </Button>{" "}
-            </Col>
-          </Row>
-          <Row className=" justify-content-center">
+
+          <Row className="justify-content-center">
             <Col sm={4} className="under101">
               <span>Copyright Policy</span>
               <p>User Agreement</p>
