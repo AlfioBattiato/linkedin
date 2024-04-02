@@ -1,20 +1,28 @@
 import { Col, Container, Row } from "react-bootstrap";
 import MyButton from "./MyButton";
+import { ReactComponent as Matita } from '../svg/matita.svg'
 
 function Profilo() {
     return (<>
         <Container className="py-5">
             <Row className="gx-5">
-                {/* sezione principale a sinistra */}
-                <Col xs={12} md={8} className="border" ><h1>main</h1></Col>
+                {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione principale a sinistra */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+                <Col xs={12} md={8} className="border rounded p-0" >
+                    <div className="position-relative">
+                        <img className="w-100 object-fit-cover" height={"355rem"} src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="copertina"></img>
+                        <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" ></img>
+                        <div className="position-absolute top-0 end-0 m-3"><button className="border-0 rounded-circle p-2 text-primary" width="155rem" height="155rem">
+                            <Matita></Matita>
+                        </button></div>
+                    </div>
 
 
+                </Col>
 
 
-
-
-
-                {/* sezione secondaria a destra */}
+                {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione secondaria a destra */}
+                {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                 <Col xs={12} md={4} className="" >
                     <Row className="gy-2">
                         {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////Section 1 */}
@@ -35,7 +43,7 @@ function Profilo() {
                             <p className="text-center sizeSmall">utente, investi sul tuo futuro con quetsa offerta esclusiva</p>
                             <div className="d-flex justify-content-center">
                                 <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww" width={"65rem"} object-fit-cover class="rounded-circle object-fit-cover" alt="..." />
-                                <img src="/assets/logo.svg" width={"65rem"} alt="logo" />
+                                <img src="assets/logo.svg" width={"65rem"} alt="logo" />
                             </div>
                             <div className="text-center">
                                 <p className="text-center mt-3">50% di sconto su 2 mesi di Linkedln Premium!</p>
@@ -82,16 +90,16 @@ function Profilo() {
                                 </div>
                             </div>
                             {/* ----------------------------- */}
-                            <hr/>
+                            <hr />
                             <p className="text-center fw-semibold m-0"> Mostra Tutto</p>
                         </Col>
                         {/*///////////////////////////////////////////////////////////////// persone che potresti conoscere///////////// */}
                         <Col xs={12} className="rounded border p-3 bg-white" >
-                        <h6>Persone che potresti conoscere</h6>
-                        <p className="text-secondary">Dalla tua scuola o università</p>
-                          
-                        
-                          
+                            <h6>Persone che potresti conoscere</h6>
+                            <p className="text-secondary">Dalla tua scuola o università</p>
+
+
+
                             {/* ----------------------- */}
                             <div className="d-flex mt-4 gap-2">
                                 <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFufGVufDB8fDB8fHww" width={"65rem"} height={"65rem"} object-fit-cover class="rounded-circle object-fit-cover" alt="..." />
@@ -111,7 +119,7 @@ function Profilo() {
                                 </div>
                             </div>
                             {/* ----------------------------- */}
-                            <hr/>
+                            <hr />
                             <p className="text-center fw-semibold m-0"> Mostra Tutto</p>
                         </Col>
 

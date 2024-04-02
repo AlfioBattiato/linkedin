@@ -8,3 +8,9 @@
 .sizeSmall{
     font-size: 14px!important;
 }
+.startP{
+    left: 7rem!important;
+}
+.custom-svg {
+    color: #ff0000 !important; 
+  }

@@ -4,7 +4,7 @@ function MyButton(props) {
     return (
         <Button className='rounded-pill fw-semibold'  variant={`outline-${props.colore}`} 
         onClick={props.funzione}>
-           <div className='d-flex'> {props.img&&(<img src={`${props.img}`}alt='img'></img>)}{props.text}</div>
+           <div className='d-flex'> {props.img&&(<img src={`${props.img}`} alt='img'></img>)}{props.text}</div>
         </Button>
     )
 }
