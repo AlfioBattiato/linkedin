@@ -7,7 +7,8 @@ import Lavoro from './component/Lavoro';
 import Messagistica from './component/Messagistica';
 import Notifiche from './component/Notifiche';
 import Rete from './component/Rete';
-import MyNavBar from './component/MyNavBar';
+import MyNavBar from './component/Navbar/MyNavBar';
+import Login from './component/Login';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
         <Route path="/Messagistica" element={<Messagistica />}/>
         <Route path="/Notifiche" element={<Notifiche />}/>
         <Route path="/Rete" element={<Rete />}/>
-        <Route path="/" element={<Profilo></Profilo>}/>
+        <Route path="/Profilo" element={<Profilo></Profilo>}/>
+        <Route path="/" element={<Login></Login>}/>
       </Routes>
       </BrowserRouter>
     </div>

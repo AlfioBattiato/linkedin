@@ -1,5 +1,5 @@
 import React from "react";
-import "./login.css";
+import "/login.css";
 
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
