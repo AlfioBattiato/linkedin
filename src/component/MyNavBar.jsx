@@ -66,7 +66,7 @@ function MyNavBar() {
                 <div className="d-flex justify-content-center ">
                   <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="profile_picture" width="30px" height={"30px"} className="image_dropdown_navbar object-fit-cover" />
                 </div>
-                <NavDropdown title="Me" id="collapsible-nav-dropdown" >
+                <NavDropdown title="Me" id="collapsible-nav-dropdown">
                   <div style={{width:"18rem"}}>
                     <div className="px-2">
                       <img src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="draft_picture" width="30px"height={"30px"} className="image_dropdown_navbar object-fit-cover" />
