@@ -14,7 +14,7 @@ function MyNavBar() {
       <Container>
         <div className="d-flex me-2">
           <Navbar.Brand href="#home" className="d-flex justify-content-end container_logo_navbar_fixed m-0">
-            <img src="/assets/logo.svg" alt="logo" width="50px" height="50px" className="Logo_navbar_fixed " />
+            <img src="/assets/logo.svg" alt="logo" width="45px" height="45px" className="Logo_navbar_fixed " />
           </Navbar.Brand>
         </div>
 
