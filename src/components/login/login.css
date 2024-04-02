@@ -37,17 +37,13 @@
   padding-bottom: 15px;
 }
 
-.form-signin:focus {
-  box-shadow: none;
-}
-
 .forgot101 {
   padding-top: 7px;
   color: #42a5f5;
 }
 
 .space101 {
-  padding-top: 28px;
+  padding-top: 1rem;
 }
 
 .btn {
