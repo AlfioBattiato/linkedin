@@ -23,3 +23,6 @@
 .icons_navbar:hover {
   color: black;
 }
+#collapsible-nav-dropdown{
+  padding: 0px!important;
+}

@@ -7,11 +7,14 @@ import Lavoro from './component/Lavoro';
 import Messagistica from './component/Messagistica';
 import Notifiche from './component/Notifiche';
 import Rete from './component/Rete';
+import MyNavBar from './component/MyNavBar';
+
 
 function App() {
   return (
     <div className='' >
       <BrowserRouter>
+      <MyNavBar></MyNavBar>
       <Routes>
         <Route path="/Home" element={<Home />}/>
         <Route path="/Lavoro" element={<Lavoro />}/>
@@ -22,6 +25,7 @@ function App() {
       </Routes>
       </BrowserRouter>
     </div>
+     
   );
 }
 
