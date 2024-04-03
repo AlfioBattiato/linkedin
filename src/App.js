@@ -10,6 +10,7 @@ import Rete from "./component/Rete";
 import MyNavBar from "./component/Navbar/MyNavBar";
 import Login from "./component/Login";
 import Footer from "./component/Footer";
+import Chat from "./component/Chat";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/" element={<Login></Login>} />
         </Routes>
         <Footer />
+        <Chat></Chat>
       </BrowserRouter>
     </div>
   );

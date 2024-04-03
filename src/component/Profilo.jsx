@@ -6,6 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { getFetch, putFetch } from "../redux/action";
+import Chat from "./Chat";
 
 
 function Profilo() {
@@ -53,10 +54,10 @@ function Profilo() {
 
     useEffect(() => {
         setAccount(utente);
-        dispatch(getFetch(token));
+        // dispatch(getFetch(token));
     }, [utente]);
-    
-  
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -89,7 +90,7 @@ function Profilo() {
                     <Row className="gy-2 myrow">
                         <Col xs={12} className="border rounded p-0 overflow-hidden bg-white pb-4 " >
                             <div className="position-relative">
-                                <img className="w-100 object-fit-cover" height={"355rem"} src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="copertina"></img>
+                                <img className="w-100 object-fit-cover" height={"300rem"} src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="copertina"></img>
                                 <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src={account !== undefined ? (account.image) : (<Spinner animation="border" variant="primary" />)} alt="avatar" ></img>
                                 <div className="position-absolute top-0 end-0 m-3"><button className="border-0 rounded-circle p-2 text-primary" width="155rem" height="155rem">
                                     <Matita></Matita>
@@ -336,7 +337,7 @@ function Profilo() {
                                 <p className="text-center sizeSmall ">utente, investi sul tuo futuro con questa offerta esclusiva </p>
                             </div>
                             <div className="d-flex justify-content-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww" width={"65rem"} className="rounded-circle object-fit-cover" alt="..." />
+                                <img src={account !== undefined ? (account.image) : (<Spinner animation="border" variant="primary" />)} width={"65rem"} height={"65rem"} className="rounded-circle object-fit-cover" alt="..." />
                                 <img src="assets/logo.svg" width={"65rem"} alt="logo" />
                             </div>
                             <div className="text-center">
@@ -420,7 +421,6 @@ function Profilo() {
                     </Row>
                 </Col>
             </Row>
-
         </Container>
 
 
