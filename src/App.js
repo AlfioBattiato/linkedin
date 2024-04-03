@@ -14,7 +14,7 @@ import Chat from "./component/Chat";
 
 function App() {
   return (
-    <div className="">
+    <div className="position-relative">
       <BrowserRouter>
         <MyNavBar></MyNavBar>
         <Routes>
@@ -26,8 +26,8 @@ function App() {
           <Route path="/Profilo" element={<Profilo></Profilo>} />
           <Route path="/" element={<Login></Login>} />
         </Routes>
-        <Footer />
         <Chat></Chat>
+        <Footer />
       </BrowserRouter>
     </div>
   );
