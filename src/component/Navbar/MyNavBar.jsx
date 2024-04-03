@@ -5,12 +5,13 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import "./navbar.css";
 import { Form } from "react-bootstrap";
 import MyButton from "../MyButton";
+import { Link } from "react-router-dom";
 
 function MyNavBar() {
   return (
-    <Navbar collapseOnSelect expand="md" className="bg-body-tertiary">
+    <Navbar collapseOnSelect expand="sm" className="flex-xs-row-reverse bg-body-tertiary">
       <Container>
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center gap-sm-3">
           <div className="d-flex me-2">
             <Navbar.Brand href="#home" className="container_logo_navbar_fixed m-0" width="45px" height="45px">
               <img src="/assets/logo.svg" alt="logo" width="45px" height="45px" className="Logo_navbar_fixed " />
@@ -35,46 +36,46 @@ function MyNavBar() {
           </div>
         </div>
 
-        <div className="d-flex">
-          <div className="d-flex gap-5">
-            <Nav className="ms-4 d-flex gap-4 align-items-center">
+        <div className="d-md-flex">
+          <div className=" gap-5 d-flex ">
+            <Nav className="flex-xs-row-reverse d-md-flex align-items-center ms-4 gap-4">
               <div className="icons_navbar">
                 <img src="/assets/home.svg" alt="home_icon" />
-                <Nav.Link href="#features" className="p-0">
+                <Nav.Link href="/Home" className="p-0">
                   Home
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
                 <img src="/assets/people.svg" alt="network_icon" />
-                <Nav.Link href="#features" className="p-0">
+                <Nav.Link href="/Rete" className="p-0">
                   Network
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
                 <img src="/assets/work.svg" alt="jobs_icon" />
-                <Nav.Link href="#features" className="p-0">
+                <Nav.Link href="/Lavoro" className="p-0">
                   Jobs
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
                 <img src="/assets/message.svg" alt="messages_icon" />
-                <Nav.Link href="#features" className="p-0">
+                <Nav.Link href="/Messagistica" className="p-0">
                   Messages
                 </Nav.Link>
               </div>
               <div className="icons_navbar">
                 <img src="/assets/campana.svg" alt="notification_icon" />
-                <Nav.Link href="#features" className="p-0">
+                <Nav.Link href="/Notifiche" className="p-0">
                   Notifications
                 </Nav.Link>
               </div>
             </Nav>
           </div>
 
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav " />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-start gap-2 ms-4">
             <div className="icons_navbar">
               <div className="d-flex justify-content-center ">
@@ -87,7 +88,7 @@ function MyNavBar() {
                 />
               </div>
 
-              <NavDropdown title="Me" id="collapsible-nav-dropdown" className="p-0">
+              <NavDropdown title="Me" id="collapsible-nav-dropdown" className="p-0 dropdown-menu-left">
                 <div style={{ width: "18rem" }} className="dropdown-menu-right">
                   <div className="px-2">
                     <img
@@ -100,7 +101,9 @@ function MyNavBar() {
                     <div>
                       <p className="fw-semibold">Amanda Marchetti</p>
                       <p>Full Stack Developer</p>
-                      <MyButton text={"Visualizza Profilo"} colore={"primary"}></MyButton>
+                      <Link to={"/Profilo"}>
+                        <MyButton text={"Visualizza Profilo"} colore={"primary"}></MyButton>
+                      </Link>
                     </div>
                   </div>
                 </div>
