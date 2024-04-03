@@ -4,12 +4,12 @@ const Footer = () => {
   return (
     <Container>
       <Row>
-        <Col className="text-center">
+        <Col className="text-center" xs={12} sm={6} md={2}>
           <div>
             <img src="/assets/linkedin.svg" alt="logo" style={{ width: "5rem" }} className=" mt-4"></img>
           </div>
         </Col>
-        <Col>
+        <Col xs={12} sm={6} md={2}>
           <ul style={{ listStyleType: "none" }} className="sizeSmall mt-4 text-secondary">
             <li className="mb-2" style={{ fontWeight: "bold" }}>
               Generale
@@ -23,7 +23,7 @@ const Footer = () => {
             <li>Sviluppatori</li>
           </ul>
         </Col>
-        <Col>
+        <Col xs={12} sm={6} md={2}>
           {" "}
           <ul style={{ listStyleType: "none" }} className="sizeSmall mt-4 text-secondary">
             <li className="mb-2" style={{ fontWeight: "bold" }}>
@@ -38,7 +38,7 @@ const Footer = () => {
             <li>Hub Top Companies</li>
           </ul>
         </Col>
-        <Col>
+        <Col xs={12} sm={6} md={2}>
           {" "}
           <ul style={{ listStyleType: "none" }} className="sizeSmall mt-4 text-secondary">
             <li className="mb-2" style={{ fontWeight: "bold" }}>
@@ -50,7 +50,7 @@ const Footer = () => {
             <li>Learning</li>
           </ul>
         </Col>
-        <Col>
+        <Col xs={12} sm={6} md={2}>
           {" "}
           <ul style={{ listStyleType: "none" }} className="sizeSmall mt-4 text-secondary">
             <li className="mb-2" style={{ fontWeight: "bold" }}>
@@ -72,7 +72,7 @@ const Footer = () => {
             <li>Ricerca persone</li>
           </ul>
         </Col>
-        <Col></Col>
+        <Col xs={12} sm={6} md={2}></Col>
       </Row>
     </Container>
   );
