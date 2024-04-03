@@ -1,28 +1,82 @@
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import MyButton from "./MyButton";
 import { ReactComponent as Matita } from '../svg/matita.svg'
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from 'react-bootstrap/Spinner';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
-import { putFetch } from "../redux/action";
+import { getFetch, putFetch } from "../redux/action";
 
 
 function Profilo() {
 
-    const utente = useSelector(state => state.utente[0])
-    const token = useSelector(state => state.apikey[0])
+    const utente = useSelector(state => state.utente[0]);
+    const token = useSelector(state => state.apikey[0]);
     const [show, setShow] = useState(false);
     const [account, setAccount] = useState(utente);
-    const dispatch = useDispatch()
-    // dispatch(putFetch())
+    const [image, setImage] = useState(null);
+    const dispatch = useDispatch();
 
+    // fetch put
+    const postImage = (token, id, formData) => {
+
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/picture`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+
+    }
+    //
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        setImage(file);
+    };
+
     useEffect(() => {
-        setAccount(utente)
-    }, [utente])
+        setAccount(utente);
+        dispatch(getFetch(token));
+    }, [utente]);
+    
+  
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        if (!image) {
+            alert("Seleziona un'immagine");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('profile', image);
+
+        handleClose();
+        postImage(token, account._id, formData);
+        dispatch(putFetch(token, account));
+        alert("Profilo modificato correttamente");
+
+    };
+
+
 
 
     return (<>
@@ -36,7 +90,7 @@ function Profilo() {
                         <Col xs={12} className="border rounded p-0 overflow-hidden bg-white pb-4 " >
                             <div className="position-relative">
                                 <img className="w-100 object-fit-cover" height={"355rem"} src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="copertina"></img>
-                                <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src={utente !== undefined ? (utente.image) : (<Spinner animation="border" variant="primary" />)} alt="avatar" ></img>
+                                <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src={account !== undefined ? (account.image) : (<Spinner animation="border" variant="primary" />)} alt="avatar" ></img>
                                 <div className="position-absolute top-0 end-0 m-3"><button className="border-0 rounded-circle p-2 text-primary" width="155rem" height="155rem">
                                     <Matita></Matita>
                                 </button></div>
@@ -53,48 +107,29 @@ function Profilo() {
                                         <Modal.Title>Modifica Profilo</Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
-                                        <form onSubmit={(e) => {
-                                            e.preventDefault();
-                                            handleClose()
-                                            alert("Profilo Modificato correttamente")
-                                            dispatch(putFetch(token,account))
-
-                                        }}>
+                                        <form onSubmit={handleSubmit}>
+                                            <div className="mb-3">
+                                                <label htmlFor="avatar" className="form-label">Foto profilo</label>
+                                                <input type="file" id="avatar" accept="image/*" onChange={handleImageChange} />
+                                            </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Name" className="form-label">Nome</label>
-
-                                                <input
-                                                    value={account?.name}
-                                                    onChange={(e) => setAccount({ ...account, name: e.target.value })}
-                                                    type="text" className="form-control" id="Name"
-                                                />
-
+                                                <input value={account?.name} onChange={(e) => setAccount({ ...account, name: e.target.value })} type="text" className="form-control" id="Name" />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Surname" className="form-label">Cognome</label>
-                                                <input type="text" className="form-control" id="Surname" value={account?.surname}
-                                                    onChange={(e) => setAccount({ ...account, surname: e.target.value })} />
-                                            </div>
-                                            <div className="mb-3">
-                                                <label htmlFor="avatar" className="form-label">Foto profilo</label>
-                                                <input type="text" id="avatar" alt="avatar" src="" onChange={(e) => setAccount({...account,image:e.target.value}) }/>
-                                                {/* <input type="img" className="form-control" id="avatar"   
-                                                
-                                                 onChange={(e) => setAccount({...account,image:e.target.value}) }/> */}
+                                                <input type="text" className="form-control" id="Surname" value={account?.surname} onChange={(e) => setAccount({ ...account, surname: e.target.value })} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Bio" className="form-label">Bio</label>
-                                                <input type="text" className="form-control" id="Bio" value={account?.bio}
-                                                    onChange={(e) => setAccount({ ...account, bio: e.target.value })} />
+                                                <input type="text" className="form-control" id="Bio" value={account?.bio} onChange={(e) => setAccount({ ...account, bio: e.target.value })} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="area" className="form-label">area</label>
-                                                <input type="text" className="form-control" id="area" value={account?.area}
-                                                    onChange={(e) => setAccount({ ...account, area: e.target.value })} />
+                                                <input type="text" className="form-control" id="area" value={account?.area} onChange={(e) => setAccount({ ...account, area: e.target.value })} />
                                             </div>
                                             <div className="d-flex">
                                                 <button type="submit" className="btn btn-success ms-auto">Salva</button>
-
                                             </div>
                                         </form>
 
