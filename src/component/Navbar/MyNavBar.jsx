@@ -10,9 +10,9 @@ import { Link } from "react-router-dom";
 function MyNavBar() {
   return (
     <Navbar collapseOnSelect expand="xs" className="flex-xs-row-reverse bg-body-tertiary">
-      <Container className="justify-content-evenly justify-md-content-between">
+      <Container className="justify-content-evenly">
         <div className="d-flex align-items-center gap-sm-3">
-          <div className="d-flex me-2">
+          <div className="d-flex justify-content-md-end">
             <Navbar.Brand href="#home" className="container_logo_navbar_fixed m-0" width="45px" height="45px">
               <img src="/assets/logo.svg" alt="logo" width="45px" height="45px" className="Logo_navbar_fixed " />
             </Navbar.Brand>
@@ -21,59 +21,59 @@ function MyNavBar() {
 
         <div className="d-flex">
           <div className=" gap-5 d-flex ">
-            <Nav className="d-flex flex-row align-items-center ms-3 ms-md-4 gap-4">
+            <Nav className="d-flex flex-row align-items-center ms-3 gap-4">
               <div>
                 <div className="position-relative">
                   <img
                     src="/assets/cerca_bold.svg"
                     alt="cerca_bold"
-                    className="d-lg-none cerca_bold_icon_navbar"
+                    className="ms-3 d-md-none cerca_bold_icon_navbar"
                     style={{ width: "25px" }}
                   />
                   <img
                     src="/assets/cerca.svg"
                     alt="research_icon"
-                    className="d-none d-lg-block position-absolute research_icon_navbar"
+                    className="d-none d-md-block position-absolute research_icon_navbar"
                   />
                   <Form.Control
                     type="text"
                     placeholder="Cerca"
-                    className="d-none d-lg-block ps-5 research_input_form_navbar"
+                    className="d-none d-md-block ps-5 research_input_form_navbar"
                     width={"20%"}
                   />
                 </div>
               </div>
               <div className="icons_navbar">
-                <Nav.Link href="/Home" className="p-0">
+                <Nav.Link href="/Home" className="p-0 icon_home_navebar">
                   <img src="/assets/home.svg" alt="home_icon" />
-                  <p className="d-none d-md-block m-0"> Home</p>
+                  <p className="d-none d-lg-block m-0"> Home</p>
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
                 <Nav.Link href="/Rete" className="p-0">
                   <img src="/assets/people.svg" alt="network_icon" />
-                  <p className="d-none d-md-block m-0">Network</p>
+                  <p className="d-none d-lg-block m-0">Network</p>
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
                 <Nav.Link href="/Lavoro" className="p-0">
                   <img src="/assets/work.svg" alt="jobs_icon" />
-                  <p className="d-none d-md-block m-0">Jobs</p>
+                  <p className="d-none d-lg-block m-0">Jobs</p>
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
                 <Nav.Link href="/Messagistica" className="p-0">
                   <img src="/assets/message.svg" alt="messages_icon" />
-                  <p className="d-none d-md-block m-0">Messages</p>
+                  <p className="d-none d-lg-block m-0">Messages</p>
                 </Nav.Link>
               </div>
               <div className="icons_navbar">
                 <Nav.Link href="/Notifiche" className="p-0">
                   <img src="/assets/campana.svg" alt="notification_icon" />
-                  <p className="d-none d-md-block m-0">Notifications</p>
+                  <p className="d-none d-lg-block m-0">Notifications</p>
                 </Nav.Link>
               </div>
               <div className="icons_navbar icon_profile_navbar">
@@ -85,18 +85,35 @@ function MyNavBar() {
                     height={"25px"}
                     className="image_dropdown_navbar object-fit-cover"
                   />
-                  <p className="d-none d-md-block m-0">Me</p>
+                  <p className="d-none d-lg-block m-0">Me</p>
+                  <NavDropdown
+                    id="basic-nav-dropdown"
+                    className="position-absolute"
+                    style={{ right: 0, left: 0, top: 0, bottom: 0 }}
+                  >
+                    <NavDropdown.Item href="#">
+                      <div className="d-flex justify-content-center">
+                        <img
+                          src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                          alt="profile_picture"
+                          width={"25px"}
+                          height={"25px"}
+                          className="image_dropdown_navbar object-fit-cover"
+                        />
+                      </div>
+                    </NavDropdown.Item>
+                  </NavDropdown>
                 </Nav.Link>
               </div>
               <div className="icons_navbar icon_business_navbar">
                 <Nav.Link href="#" className="p-0">
                   <img src="/assets/business.svg" alt="business_icon mb-0" />
-                  <p className="d-none d-md-block m-0">Business</p>
+                  <p className="d-none d-lg-block m-0">Business</p>
                 </Nav.Link>
               </div>
-              <div className="icons_navbar icon_tre_punti_navbar">
+              <div className="icons_navbar ">
                 <Nav.Link href="#" className="p-0 position-relative">
-                  <img src="/assets/tre_punti.svg" alt="business_icon mb-0" />
+                  <img src="/assets/tre_punti.svg" alt="business_icon mb-0" className="icon_tre_punti_navbar" />
                   <NavDropdown
                     id="basic-nav-dropdown"
                     className="position-absolute"
@@ -104,7 +121,17 @@ function MyNavBar() {
                   >
                     <Nav.Link href="#" className="p-0">
                       <img src="/assets/business.svg" alt="business_icon mb-0" />
-                      <p className="d-none d-md-block m-0">Business</p>
+                      <p className="d-none d-lg-block m-0">Business</p>
+                    </Nav.Link>
+                    <Nav.Link href="#" className="icon_profile_dropdown_navbar">
+                      <img
+                        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                        alt="profile_picture"
+                        width={"25px"}
+                        height={"25px"}
+                        className="image_dropdown_navbar object-fit-cover"
+                      />
+                      <p className="d-none d-lg-block m-0">Me</p>
                     </Nav.Link>
                   </NavDropdown>
                 </Nav.Link>

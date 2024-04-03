@@ -20,16 +20,18 @@
   text-align: center;
   cursor: pointer;
 }
-.icons_navbar:hover {
+.icon_home_navebar:hover {
   color: black;
+  opacity: 1;
 }
 #collapsible-nav-dropdown {
   padding: 0px !important;
 }
-.icon_tre_punti_navbar {
+
+.cerca_bold_icon_navbar {
   opacity: 0.7;
 }
-.cerca_bold_icon_navbar {
+.icon_tre_punti_navbar {
   opacity: 0.7;
 }
 
@@ -58,6 +60,11 @@
 
 @media (min-width: 551px) {
   .icon_tre_punti_navbar {
+    display: none;
+  }
+}
+@media (min-width: 470px) {
+  .icon_profile_dropdown_navbar {
     display: none;
   }
 }
