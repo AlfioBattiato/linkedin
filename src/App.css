@@ -1,22 +1,21 @@
-:root{
-    --darkblue:#004182;
+:root {
+  --darkblue: #004182;
 }
 
-.darkBlue{
-    color: var(--darkblue)!important;
+.darkBlue {
+  color: var(--darkblue) !important;
 }
-.sizeSmall{
-    font-size: 14px!important;
+.sizeSmall {
+  font-size: 14px !important;
 }
-.startP{
-    left: 7rem!important;
+.startP {
+  left: 7rem !important;
 }
 .custom-svg {
-    color: #ff0000 !important; 
-  }
-  .box {
-    height: 91vh;
-    background-image: url("https://i.imgur.com/aeidEH1.jpg");
-    background-size: cover;
-  }
-  
+  color: #ff0000 !important;
+}
+.box {
+  height: 91vh;
+  background-image: url("https://i.imgur.com/aeidEH1.jpg");
+  background-size: cover;
+}
