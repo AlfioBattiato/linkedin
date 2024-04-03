@@ -63,7 +63,7 @@ function Notifiche() {
                 {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione secondaria a destra */}
                 <Col xs={12} md={3}  >
 
-                    <div className="bg-white p-3">
+                    <div className="bg-white p-3 border rounded">
                         <div className="row">
                             <span className="sizeSmall fw-semibold text-end">Annuncio ...</span>
                             <p className="text-center sizeSmall ">utente, investi sul tuo futuro con questa offerta esclusiva </p>
