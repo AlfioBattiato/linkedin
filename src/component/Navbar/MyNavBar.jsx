@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 function MyNavBar() {
   return (
     <Navbar collapseOnSelect expand="sm" className="flex-xs-row-reverse bg-body-tertiary">
-      <Container>
+      <Container className="justify-content-evenly">
         <div className="d-flex align-items-center gap-sm-3">
           <div className="d-flex me-2">
             <Navbar.Brand href="#home" className="container_logo_navbar_fixed m-0" width="45px" height="45px">
@@ -40,36 +40,36 @@ function MyNavBar() {
           <div className=" gap-5 d-flex ">
             <Nav className="flex-xs-row-reverse d-md-flex align-items-center ms-4 gap-4">
               <div className="icons_navbar">
-                <img src="/assets/home.svg" alt="home_icon" />
                 <Nav.Link href="/Home" className="p-0">
-                  Home
+                  <img src="/assets/home.svg" alt="home_icon" />
+                  <p className="d-none d-md-block m-0"> Home</p>
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
-                <img src="/assets/people.svg" alt="network_icon" />
                 <Nav.Link href="/Rete" className="p-0">
-                  Network
+                  <img src="/assets/people.svg" alt="network_icon" />
+                  <p className="d-none d-md-block m-0">Network</p>
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
-                <img src="/assets/work.svg" alt="jobs_icon" />
                 <Nav.Link href="/Lavoro" className="p-0">
-                  Jobs
+                  <img src="/assets/work.svg" alt="jobs_icon" />
+                  <p className="d-none d-md-block m-0">Jobs</p>
                 </Nav.Link>
               </div>
 
               <div className="icons_navbar">
-                <img src="/assets/message.svg" alt="messages_icon" />
                 <Nav.Link href="/Messagistica" className="p-0">
-                  Messages
+                  <img src="/assets/message.svg" alt="messages_icon" />
+                  <p className="d-none d-md-block m-0">Messages</p>
                 </Nav.Link>
               </div>
               <div className="icons_navbar">
-                <img src="/assets/campana.svg" alt="notification_icon" />
                 <Nav.Link href="/Notifiche" className="p-0">
-                  Notifications
+                  <img src="/assets/campana.svg" alt="notification_icon" />
+                  <p className="d-none d-md-block m-0">Notifications</p>
                 </Nav.Link>
               </div>
             </Nav>
