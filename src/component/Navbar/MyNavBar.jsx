@@ -101,9 +101,9 @@ function MyNavBar() {
                     <div>
                       <p className="fw-semibold">Amanda Marchetti</p>
                       <p>Full Stack Developer</p>
-                      <Link to={"/Profilo"}>
-                        <MyButton text={"Visualizza Profilo"} colore={"primary"}></MyButton>
-                      </Link>
+                    
+                        <MyButton text={"Visualizza Profilo"} colore={"primary"} link={"/Profilo"}></MyButton>
+                   
                     </div>
                   </div>
                 </div>

@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import MyButton from "./MyButton";
+import singleAccount from "../redux/reducer/singleAccount";
+import { useDispatch } from "react-redux";
+
 
 function Login({ isLoggedIn, setIsLoggedIn }) {
+  const dispatch = useDispatch()
+
+  // useEffect(() => {
+  //   dispatch(singleAccount({nome:"alfio"}))
+  // }, [])
+
   return (
     <div className="box">
       <Container fluid>
@@ -15,27 +24,27 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
             <div className="mt-4 ">
               <h4>Accedi</h4>
               <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">
+                <div className="mb-3">
+                  <label htmlFor="exampleInputEmail1" className="form-label">
                     Username
                   </label>
                   <input
                     type="email"
-                    class="form-control"
+                    className="form-control"
                     id="exampleInputEmail1"
                     placeholder="Inserisci il tuo Username"
                     aria-describedby="emailHelp"
                   />
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">
+                <div className="mb-3">
+                  <label htmlFor="exampleInputPassword1" className="form-label">
                     Password
                   </label>
-                  <input type="password" class="form-control" placeholder="Password" id="exampleInputPassword1" />
+                  <input type="password" className="form-control" placeholder="Password" id="exampleInputPassword1" />
                 </div>
-                <div class=" form-check ">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                  <label class="form-check-label" for="exampleCheck1">
+                <div className=" form-check ">
+                  <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                  <label className="form-check-label" htmlFor="exampleCheck1">
                     Ricordami
                   </label>
                 </div>
