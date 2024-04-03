@@ -6,7 +6,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
   return (
     <div className="box">
       <Container fluid>
-        <Row className="w-100 mx-auto text-secondary">
+        <Row className="w-100 mx-auto">
           <Col xs={12} md={4}></Col>
           <Col xs={12} md={4} className="mt-5 bg-white pb-3 ">
             <div className="text-center">
