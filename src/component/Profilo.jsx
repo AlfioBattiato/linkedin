@@ -1,8 +1,15 @@
 import { Button, Col, Container, Row } from "react-bootstrap";
 import MyButton from "./MyButton";
 import { ReactComponent as Matita } from '../svg/matita.svg'
+import { useSelector } from "react-redux";
+import Spinner from 'react-bootstrap/Spinner';
+
 
 function Profilo() {
+
+const utente=useSelector(state=>state.utente[0])
+
+
     return (<>
         <Container className="py-5">
             <Row className="gx-3 gy-3">
@@ -14,22 +21,22 @@ function Profilo() {
                         <Col xs={12} className="border rounded p-0 overflow-hidden bg-white pb-4 " >
                             <div className="position-relative">
                                 <img className="w-100 object-fit-cover" height={"355rem"} src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="copertina"></img>
-                                <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D" alt="" ></img>
+                                <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src={utente!==undefined ? (utente.image):(<Spinner animation="border" variant="primary" />)} alt="avatar" ></img>
                                 <div className="position-absolute top-0 end-0 m-3"><button className="border-0 rounded-circle p-2 text-primary" width="155rem" height="155rem">
                                     <Matita></Matita>
                                 </button></div>
                             </div>
                             <div className="position-relative">
-                                <img src="/assets/matita.svg" className="position-absolute top-0 end-0 p-3" alt="matita" />
+                                <img onClick={()=>console.log("ee")} src="/assets/matita.svg" className="position-absolute top-0 end-0 p-3" alt="matita" />
                             </div>
                             <div className="mt-5 pt-5 px-4">
-                                <h4 className="mb-0">Mario Rossi</h4>
-                                <p className="m-0">Full stack developer|React|Redux|PHP|Laravel</p>
-                                <p className="my-2 text-secondary sizeSmall">Milan,Lombardia,Italy <a href="#ì" className="text-decoration-none">Informazioni di contatto</a></p>
+                                <h4 className="mb-0">{utente!==undefined ? (utente.name)+" "+ (utente.surname)   : (<Spinner animation="border" variant="primary" />)}</h4>
+                                <h6 className="m-0">{utente!==undefined ? (utente.bio):(<Spinner animation="border" variant="primary" />)}</h6>
+                                <h6 className="my-2 text-secondary sizeSmall">{utente!==undefined ? (utente.area):(<Spinner animation="border" variant="primary" />)} <a href="#ì" className="text-decoration-none">Informazioni di contatto</a></h6>
                                 <p className="sizeSmall"> <a href="#ì" className="text-decoration-none">213 collegamenti</a></p>
                             </div>
                             <div className="d-flex gap-2 px-4 flex-wrap">
-                                <MyButton text={"Disponibile per"} colore={"primary"}></MyButton>
+                                <MyButton text={"Disponibile per"} colore={"primary"} funzione={()=>console.log(utente)}></MyButton>
                                 <MyButton text={"Aggiungi sezione del profilo"} colore={"outline-primary"}></MyButton>
                                 <MyButton text={"Altro"} colore={"outline-secondary"}></MyButton>
                             </div>

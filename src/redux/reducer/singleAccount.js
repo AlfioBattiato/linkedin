@@ -1,19 +1,27 @@
-import { GET_ACCOUNT } from "../action";
+import { PUT_TOKEN } from "../action";
+import { GET_FETCH } from "../action";
 
 
 
 const initialState = {
-    apikey: {content:["alfio"]},
-   
+    apikey: [],
+    utente: []
+
 }
 
 const singleAccount = function (state = initialState, action) {
     switch (action.type) {
 
-        case GET_ACCOUNT:
+        case PUT_TOKEN:
             return {
                 ...state,
-                apikey: [...state.apikey, action.payload] 
+                apikey: [action.payload]
+            }
+
+        case GET_FETCH:
+            return {
+                ...state,
+                utente: [action.payload]
             }
         default:
             return state;

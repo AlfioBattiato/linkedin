@@ -1,16 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
-import MyButton from "./MyButton";
-import singleAccount from "../redux/reducer/singleAccount";
+
+
 import { useDispatch } from "react-redux";
+import { getFetch, putToken } from "../redux/action";
+import { useNavigate } from "react-router-dom";
 
 
 function Login({ isLoggedIn, setIsLoggedIn }) {
-  const dispatch = useDispatch()
+  const [username, setUsername] = useState("");
+  const [token, setToken] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   dispatch(singleAccount({nome:"alfio"}))
-  // }, [])
+  useEffect(() => {
+    if (token) {
+      dispatch(putToken(token));
+      dispatch(getFetch(token))
+
+      navigate("/Profilo")
+    }
+  }, [token, dispatch]);
+
+  const checkUtente = () => {
+    switch (username) {
+      case 'Alfio':
+        setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiZDRlYmEyODFkODAwMTlhM2VjNzEiLCJpYXQiOjE3MTIwNTE0MzUsImV4cCI6MTcxMzI2MTAzNX0.6XFsoRmlAIYN75fwlnD95BLxQxCGd9IcLzryQIMY3ps");
+       ;
+        break;
+      case 'Serena':
+        setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBkNGIwM2Y5NGY0YTAwMTkzNzkxYmMiLCJpYXQiOjE3MTIxNDcyMDMsImV4cCI6MTcxMzM1NjgwM30.qeeiVvKDA3SGBZeomE3kCVwmkoz33bfX-4EqWeHX5wI");
+        break;
+      case 'Amanda':
+        setToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjBiYmVmZWEyODFkODAwMTlhM2VjNGIiLCJpYXQiOjE3MTIwNDU4MjIsImV4cCI6MTcxMzI1NTQyMn0.w7PF_g-TL9V7aM52dxydpbE12hjI7zyy95-6ss-mplo");
+        break;
+      default:
+        alert("Utente non trovato");
+        break;
+    }
+  }
+
 
   return (
     <div className="box">
@@ -23,24 +52,30 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
             </div>
             <div className="mt-4 ">
               <h4>Accedi</h4>
-              <form>
+              <form onSubmit={(e) => {
+                e.preventDefault()
+                checkUtente()
+              }
+              } >
                 <div className="mb-3">
                   <label htmlFor="exampleInputEmail1" className="form-label">
                     Username
                   </label>
                   <input
-                    type="email"
+                    type="text"
                     className="form-control"
                     id="exampleInputEmail1"
                     placeholder="Inserisci il tuo Username"
                     aria-describedby="emailHelp"
+                    required
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className="mb-3">
                   <label htmlFor="exampleInputPassword1" className="form-label">
                     Password
                   </label>
-                  <input type="password" className="form-control" placeholder="Password" id="exampleInputPassword1" />
+                  <input type="password" className="form-control" placeholder="Password" id="exampleInputPassword1" required />
                 </div>
                 <div className=" form-check ">
                   <input type="checkbox" className="form-check-input" id="exampleCheck1" />
@@ -49,9 +84,12 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
                   </label>
                 </div>
                 <div className=" d-flex align-items-center justify-content-center gap-2 mt-4">
-                  <MyButton colore={"primary"} text={"Accedi"} type={"submit"}></MyButton>
+                  <button type="submit" className="btn btn-primary rounded-pill"
+
+                  >Accedi</button>
                   <span> o</span>
-                  <MyButton colore={"primary"} text={"Registrati"}></MyButton>
+                  <button type="button" className="btn btn-primary rounded-pill" onClick={() => { }}>Registrati</button>
+
                 </div>
               </form>
               <div className="mt-4">
