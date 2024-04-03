@@ -23,6 +23,11 @@
     background-image: url("https://i.imgur.com/aeidEH1.jpg");
     background-size: cover;
 }
+.hov:hover{
+    cursor: pointer;
+    background-color: #D7E9FB;
+}
+
 @media screen and (min-width:768px) {
     .myrow{
         max-width: 100%;
