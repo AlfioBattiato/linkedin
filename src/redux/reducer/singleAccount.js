@@ -1,5 +1,6 @@
 import { PUT_TOKEN } from "../action";
 import { GET_FETCH } from "../action";
+import { PUT_FETCH } from "../action";
 
 
 
@@ -19,6 +20,11 @@ const singleAccount = function (state = initialState, action) {
             }
 
         case GET_FETCH:
+            return {
+                ...state,
+                utente: [action.payload]
+            }
+        case PUT_FETCH:
             return {
                 ...state,
                 utente: [action.payload]
