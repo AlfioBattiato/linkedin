@@ -7,7 +7,7 @@ function Chat() {
     const [show,setShow]=useState("hidden")
 
     return (<>
-        <div className="chat bg-white position-sticky bottom-0 start-100 p-2 border  rounded">
+        <div className="chat bg-white position-fixed p-2 border  rounded">
             <Row className="align-items-center">
                 <Col xs={2}>
                     <button type="button" class=" position-relative p-0 border-0 bg-white">
