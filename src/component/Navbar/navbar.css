@@ -26,3 +26,38 @@
 #collapsible-nav-dropdown {
   padding: 0px !important;
 }
+.icon_tre_punti_navbar {
+  opacity: 0.7;
+}
+.cerca_bold_icon_navbar {
+  opacity: 0.7;
+}
+
+/*TRE_PUNTI DROPDOWN*/
+.dropdown-toggle::after {
+  display: none !important;
+}
+/* #basic-nav-dropdown {
+  padding: 0;
+} */
+
+/*MEDIA QUERY NAVBAR - ICONS*/
+@media (max-width: 550px) {
+  .icon_business_navbar {
+    display: none;
+  }
+  .icon_tre_punti_navbar {
+    display: block;
+  }
+}
+@media (max-width: 469px) {
+  .icon_profile_navbar {
+    display: none;
+  }
+}
+
+@media (min-width: 551px) {
+  .icon_tre_punti_navbar {
+    display: none;
+  }
+}
