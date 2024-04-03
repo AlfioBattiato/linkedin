@@ -75,7 +75,7 @@ function MyNavBar() {
             </Nav>
           </div>
 
-          <Navbar.Toggle aria-controls="responsive-navbar-nav " />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-start gap-2 ms-4">
             <div className="icons_navbar">
               <div className="d-flex justify-content-center ">
@@ -88,8 +88,8 @@ function MyNavBar() {
                 />
               </div>
 
-              <NavDropdown title="Me" id="collapsible-nav-dropdown" className="p-0 dropdown-menu-left">
-                <div style={{ width: "18rem" }} className="dropdown-menu-right">
+              <NavDropdown title="Me" id="collapsible-nav-dropdown" className="p-0 ">
+                <div style={{ width: "18rem" }}>
                   <div className="px-2">
                     <img
                       src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
@@ -101,9 +101,15 @@ function MyNavBar() {
                     <div>
                       <p className="fw-semibold">Amanda Marchetti</p>
                       <p>Full Stack Developer</p>
-                      <Link to={"/Profilo"}>
-                        <MyButton text={"Visualizza Profilo"} colore={"primary"}></MyButton>
-                      </Link>
+
+                      <div>
+                        <Link to={"/Profilo"}>
+                          <MyButton text={"Visualizza Profilo"} colore={"primary"}></MyButton>
+                        </Link>
+                        <Link to={"/Login"}>
+                          <MyButton text={"Uscire"} colore={"primary"}></MyButton>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </div>
