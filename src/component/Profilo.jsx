@@ -6,7 +6,7 @@ import Spinner from 'react-bootstrap/Spinner';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { getFetch, putFetch } from "../redux/action";
-import Chat from "./Chat";
+
 
 
 function Profilo() {
@@ -53,9 +53,11 @@ function Profilo() {
     };
 
     useEffect(() => {
-        setAccount(utente);
-        // dispatch(getFetch(token));
-    }, [utente]);
+        if (utente) {
+            setAccount(utente);
+            dispatch(getFetch(token));
+        }
+    }, [utente, token, dispatch]);
 
 
 
@@ -73,25 +75,20 @@ function Profilo() {
         handleClose();
         postImage(token, account._id, formData);
         dispatch(putFetch(token, account));
+
         alert("Profilo modificato correttamente");
 
     };
-
-
-
-
     return (<>
         <Container className="py-5">
             <Row className="gx-3 gy-3">
                 {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione principale a sinistra */}
-                {/* /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */}
                 <Col xs={12} md={9} className="" >
-
                     <Row className="gy-2 myrow">
                         <Col xs={12} className="border rounded p-0 overflow-hidden bg-white pb-4 " >
                             <div className="position-relative">
                                 <img className="w-100 object-fit-cover" height={"300rem"} src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="copertina"></img>
-                                <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src={account !== undefined ? (account.image) : (<Spinner animation="border" variant="primary" />)} alt="avatar" ></img>
+                                <img className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle " width={"150rem"} height={"150rem"} src={utente !== undefined ? (utente.image) : (<Spinner animation="border" variant="primary" />)} alt="avatar" ></img>
                                 <div className="position-absolute top-0 end-0 m-3"><button className="border-0 rounded-circle p-2 text-primary" width="155rem" height="155rem">
                                     <Matita></Matita>
                                 </button></div>
@@ -102,7 +99,6 @@ function Profilo() {
                                     src="/assets/matita.svg" className="position-absolute top-0 end-0 p-3" alt="matita" />
                             </div>
                             <>
-
                                 <Modal show={show} onHide={handleClose}>
                                     <Modal.Header closeButton>
                                         <Modal.Title>Modifica Profilo</Modal.Title>
@@ -137,11 +133,6 @@ function Profilo() {
                                     </Modal.Body>
                                 </Modal>
                             </>
-
-
-
-
-
                             <div className="mt-5 pt-5 px-4">
                                 <h4 className="mb-0">{utente !== undefined ? (utente.name) + " " + (utente.surname) : (<Spinner animation="border" variant="primary" />)}</h4>
                                 <h6 className="m-0">{utente !== undefined ? (utente.bio) : (<Spinner animation="border" variant="primary" />)}</h6>
@@ -149,16 +140,13 @@ function Profilo() {
                                 <p className="sizeSmall"> <a href="#ì" className="text-decoration-none">213 collegamenti</a></p>
                             </div>
                             <div className="d-flex gap-2 px-4 flex-wrap">
-                                <MyButton text={"Disponibile per"} colore={"primary"} funzione={() => console.log(account)}></MyButton>
+                                <MyButton text={"Disponibile per"} colore={"primary"} funzione={() => console.log(utente)}></MyButton>
                                 <MyButton text={"Aggiungi sezione del profilo"} colore={"outline-primary"}></MyButton>
                                 <MyButton text={"Altro"} colore={"outline-secondary"}></MyButton>
                             </div>
                             {/* 888888888 */}
-
-
                         </Col>
                         {/* ********************************************************************************************************** */}
-
                         <Col xs={12} className="border rounded p-0 overflow-hidden bg-white" >
                             <div className="px-4 py-4">
                                 <h5>Analisi</h5>

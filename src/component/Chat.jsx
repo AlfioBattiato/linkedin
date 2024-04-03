@@ -10,9 +10,9 @@ function Chat() {
         <div className="chat bg-white position-fixed p-2 border  rounded">
             <Row className="align-items-center">
                 <Col xs={2}>
-                    <button type="button" class=" position-relative p-0 border-0 bg-white">
+                    <button type="button" className=" position-relative p-0 border-0 bg-white">
                         <img src={state?.image} alt="avatar" width={"37rem"} height={"37rem"} className="rounded-circle object-fit-cover" />
-                        <span className="position-absolute bottom-0 start-100 translate-middle badge border border-light rounded-circle bg-success p-1"><span class="visually-hidden">unread messages</span></span>
+                        <span className="position-absolute bottom-0 start-100 translate-middle badge border border-light rounded-circle bg-success p-1"><span className="visually-hidden">unread messages</span></span>
                     </button>
                 </Col>
                 <Col xs={6}>
@@ -35,10 +35,7 @@ function Chat() {
             </div>
 
 
-
         </div>
-
-
 
 
     </>)
