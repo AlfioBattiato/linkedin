@@ -2,15 +2,16 @@
   margin: 0;
   padding: 0;
 } */
+/* .div_position_box_research_navbar { */
+/* } */
 .container_logo_navbar_fixed {
-  width: 5vw;
   margin: 0;
 }
 .image_dropdown_navbar {
   border-radius: 50%;
 }
 .research_icon_navbar {
-  padding: 10px;
+  padding: 11px;
   pointer-events: none;
 }
 .research_input_form_navbar {
@@ -19,6 +20,7 @@
 .icons_navbar {
   text-align: center;
   cursor: pointer;
+  font-size: 1rem !important;
 }
 #home_icon_nav:hover {
   color: black !important;
@@ -58,11 +60,6 @@
     display: none !important;
   }
 }
-/* @media (max-width: 550px) {
-  .mini_box_icons_dropdown_navbar {
-    display:;
-  }
-} */
 
 /*MEDIA QUERY NAVBAR - ICONS*/
 @media (max-width: 550px) {
@@ -91,7 +88,7 @@
 }
 @media (min-width: 470px) {
   .icon_profile_dropdown_navbar {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 388px) {
@@ -101,7 +98,7 @@
 }
 @media (min-width: 389px) {
   .icon_bell_dropdown_navbar {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 338px) {
@@ -111,7 +108,7 @@
 }
 @media (min-width: 339px) {
   .icon_messages_dropdown_navbar {
-    display: none;
+    display: none !important;
   }
 }
 @media (max-width: 288px) {
@@ -121,6 +118,6 @@
 }
 @media (min-width: 289px) {
   .icon_jobs_dropdown_navbar {
-    display: none;
+    display: none !important;
   }
 }
