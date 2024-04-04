@@ -5,18 +5,19 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from 'react-bootstrap/Spinner';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
-import { putFetch, putImg } from "../redux/action";
+import { getAllesperienze, postEsperienza, putFetch, putImg, putImgEsperienza } from "../redux/action";
 
 
 
 function Profilo() {
 
-    const utente = useSelector(state => state.utente[0]);
+    const utente = useSelector(state => state.utente);
+    const [account, setAccount] = useState(utente);
     const token = useSelector(state => state.apikey[0]);
     const [show, setShow] = useState(false);
     const [showEsperienze, setShowEsperienze] = useState(false);
-    const [account, setAccount] = useState(utente);
-    const [image, setImage] = useState(null);
+    const [imageExp, setImageExp] = useState(null);
+    const [avatar, setAvatar] = useState(null);
     const [esperienza, setEsperienza] = useState(
         {
             "role": "Full Stack Web Developer",
@@ -25,7 +26,6 @@ function Profilo() {
             "endDate": "2023-06-16", // può essere null
             "description": "Implementing new features",
             "area": "Milan",
-            "image": "", // SERVER GENERATED, modificabile
         });
 
 
@@ -38,21 +38,32 @@ function Profilo() {
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
-        setImage(file);
+        setAvatar(file);
+    };
+    const handleImageChange2 = (e) => {
+        const file = e.target.files[0];
+        setImageExp(file);
     };
     const esperienzaSubmit = (e) => {
         e.preventDefault()
-      console.log(esperienza)
+        const formData = new FormData();
+        formData.append('experience', imageExp);
+        dispatch(postEsperienza(token, account._id, esperienza, formData))
+        alert("Esperienza Aggiunta Correttamente");
+        setShowEsperienze(!showEsperienze)
     };
 
     useEffect(() => {
         setAccount(utente);
+        if (utente._id) {
+             dispatch(getAllesperienze(token, utente._id)); 
+            }
     }, [utente, token, dispatch]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append('profile', image);
+        formData.append('profile', avatar);
         handleClose();
         dispatch(putFetch(token, account));
         dispatch(putImg(token, account._id, formData));
@@ -173,7 +184,7 @@ function Profilo() {
                             </div>
                             <div className="px-4 py-4">
                                 <h5>Esperienza</h5>
-                                <Modal show={showEsperienze} onHide={()=>setShowEsperienze(!showEsperienze)}>
+                                <Modal show={showEsperienze} onHide={() => setShowEsperienze(!showEsperienze)}>
                                     <Modal.Header closeButton>
                                         <Modal.Title>Modifica Profilo</Modal.Title>
                                     </Modal.Header>
@@ -182,27 +193,27 @@ function Profilo() {
                                             <div className="mb-3">
                                                 <label htmlFor="avatar" className="form-label">Immagine</label>
                                                 <br></br>
-                                                <input type="file" id="avatar" accept="image/*" onChange={handleImageChange} />
+                                                <input required type="file" id="avatar" accept="image/*" onChange={handleImageChange2} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Titolo" className="form-label">Titolo</label>
-                                                <input  type="text" className="form-control" id="Titolo"onChange={(e) => setEsperienza({ ...esperienza, role: e.target.value })} />
+                                                <input required type="text" className="form-control" id="Titolo" onChange={(e) => setEsperienza({ ...esperienza, role: e.target.value })} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Inizio" className="form-label">Inizio Data</label>
-                                                <input type="text" className="form-control" id="Inizio"  onChange={(e) => setEsperienza({ ...esperienza, startDate: e.target.value })} />
+                                                <input required type="date" className="form-control" id="Inizio" onChange={(e) => setEsperienza({ ...esperienza, startDate: e.target.value })} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Fine" className="form-label">Fine Data</label>
-                                                <input type="text" className="form-control" id="Fine" onChange={(e) => setEsperienza({ ...esperienza, endDate: e.target.value })} />
+                                                <input type="date" className="form-control" id="Fine" onChange={(e) => setEsperienza({ ...esperienza, endDate: e.target.value })} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Luogo" className="form-label">Luogo</label>
-                                                <input type="text" className="form-control" id="Luogo"  onChange={(e) => setEsperienza({ ...esperienza, area: e.target.value })} />
+                                                <input required type="text" className="form-control" id="Luogo" onChange={(e) => setEsperienza({ ...esperienza, area: e.target.value })} />
                                             </div>
                                             <div className="mb-3">
                                                 <label htmlFor="Competenze" className="form-label">Competenze</label>
-                                                <input type="text" className="form-control" id="Competenze" onChange={(e) => setEsperienza({ ...esperienza, description: e.target.value })} />
+                                                <input required type="text" className="form-control" id="Competenze" onChange={(e) => setEsperienza({ ...esperienza, description: e.target.value })} />
                                             </div>
                                             <div className="d-flex">
                                                 <button type="submit" className="btn btn-success ms-auto">Salva</button>
