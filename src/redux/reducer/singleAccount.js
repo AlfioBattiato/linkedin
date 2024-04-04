@@ -31,12 +31,12 @@ const singleAccount = function (state = initialState, action) {
         case PUT_FETCH:
             return {
                 ...state,
-                utente: [action.payload]
+                utente: action.payload
             }
         case PUT_IMG:
             return {
                 ...state,
-                utente: [action.payload]
+                utente: action.payload
             }
 
         case GET_ESPERIENZE:

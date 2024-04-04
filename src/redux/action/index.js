@@ -153,9 +153,40 @@ export const postEsperienza = (token, id, oggetto,formData) => {
                 }
             })
             .then((obj) => {
-                console.log("exp",obj)
+              
                dispatch( putImgEsperienza(token,id,formData,obj._id))
 
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+
+    }
+}
+// per modificare esperienza
+export const putEsperienza = (token, id, oggetto,idExp,formData) => {
+    return (dispatch, getState) => {
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/experiences/${idExp}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body:JSON.stringify( oggetto)
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+              if(formData){
+                  dispatch( putImgEsperienza(token,id,formData,obj._id))
+              }else{
+                dispatch(getAllesperienze(token,id))
+              }
             })
             .catch((error) => {
                 console.log("ERRORE", error);
@@ -189,5 +220,30 @@ export const getAllesperienze = (token,id) => {
             });
     }
 }
+
+export const deleteExperience = (token, idUtente, idExp) => {
+    return (dispatch, getState) => {
+
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${idUtente}/experiences/${idExp}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then((response) => {
+                if (response.ok) {
+              
+                    dispatch(getAllesperienze(token,idUtente));  
+                    console.log("Esperienza eliminata con successo");
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+    }
+}
+
 
 

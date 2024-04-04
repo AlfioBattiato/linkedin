@@ -8,6 +8,10 @@ function Chat() {
   const [show, setShow] = useState("hidden");
   const location = useLocation();
 
+
+
+  
+
   return (
     <>
       {location.pathname === "/" ? (

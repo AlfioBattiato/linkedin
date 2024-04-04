@@ -6,14 +6,16 @@ import Spinner from 'react-bootstrap/Spinner';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
 import { getAllesperienze, postEsperienza, putFetch, putImg, putImgEsperienza } from "../redux/action";
+import Esperienza from "./Esperienza";
 
 
 
 function Profilo() {
 
     const utente = useSelector(state => state.utente);
-    const [account, setAccount] = useState(utente);
     const token = useSelector(state => state.apikey[0]);
+    const allEsperienze = useSelector(state => state.esperienze);
+    const [account, setAccount] = useState(utente);
     const [show, setShow] = useState(false);
     const [showEsperienze, setShowEsperienze] = useState(false);
     const [imageExp, setImageExp] = useState(null);
@@ -54,10 +56,10 @@ function Profilo() {
     };
 
     useEffect(() => {
-        setAccount(utente);
         if (utente._id) {
-             dispatch(getAllesperienze(token, utente._id)); 
-            }
+            setAccount(utente);
+            dispatch(getAllesperienze(token, utente._id));
+        }
     }, [utente, token, dispatch]);
 
     const handleSubmit = (e) => {
@@ -98,6 +100,7 @@ function Profilo() {
                                         <form onSubmit={handleSubmit}>
                                             <div className="mb-3">
                                                 <label htmlFor="avatar" className="form-label">Foto profilo</label>
+                                                <br></br>
                                                 <input type="file" id="avatar" accept="image/*" onChange={handleImageChange} />
                                             </div>
                                             <div className="mb-3">
@@ -179,14 +182,14 @@ function Profilo() {
                             <div className="d-flex gap-4 position-absolute end-0 m-3">
                                 <img src="/assets/+.svg" width={"25rem"} alt="img"
                                     onClick={() => setShowEsperienze(!showEsperienze)} />
-                                <img src="/assets/matita.svg" alt="img" />
+                              
 
                             </div>
                             <div className="px-4 py-4">
                                 <h5>Esperienza</h5>
                                 <Modal show={showEsperienze} onHide={() => setShowEsperienze(!showEsperienze)}>
                                     <Modal.Header closeButton>
-                                        <Modal.Title>Modifica Profilo</Modal.Title>
+                                        <Modal.Title>Inserisci Esperienza</Modal.Title>
                                     </Modal.Header>
                                     <Modal.Body>
                                         <form onSubmit={esperienzaSubmit}>
@@ -223,26 +226,11 @@ function Profilo() {
                                     </Modal.Body>
                                 </Modal>
                                 <Row className="">
-                                    <Col xs={12} className="d-flex align-items-start gap-3 pt-3">
-                                        <img width={"55rem"} height={"55rem"} alt="img" src="https://images.unsplash.com/photo-1573141597928-403fcee0e056?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z29vZ2xlfGVufDB8fDB8fHww"></img>
-                                        <div>
-                                            <h6>Junior FrontEnd</h6>
-                                            <p className="m-0 text-secondary sizeSmall">2015 - 2016 - 6 mesi</p>
-                                            <p className="m-0 text-secondary sizeSmall">Milan Sede centrale</p>
-                                            <p className="mt-2 text-secondary sizeSmall">Tirocinio della durata di 6 mesi- Linguaggi html css react redux bootstrap/ Team working</p>
-                                        </div>
-                                    </Col>
-                                    <hr></hr>
-                                    <Col xs={12} className="d-flex align-items-start gap-3 pt-3">
-                                        <img className="object-fit-cover" width={"55rem"} height={"55rem"} alt="img" src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGF6aWVuZGElMjBpbmZvcm1hdGljYXxlbnwwfHwwfHx8MA%3D%3D"></img>
-                                        <div>
-                                            <h6>L'Editoriale srl</h6>
-                                            <p className="m-0 text-secondary sizeSmall">2012 - 2015 - 3 anni e 9 mesi</p>
-                                            <p className="m-0 text-secondary sizeSmall">Roma</p>
-                                            <p className="mt-2 text-secondary sizeSmall">Giornalista - Social Manager - Co-Working</p>
-                                            <p className="mt-2 text-secondary sizeSmall fw-semibold">Lingua Inglese - Lingua Italiana</p>
-                                        </div>
-                                    </Col>
+                                    {/* genera esperienze */}
+                                    {allEsperienze.length > 0 && (allEsperienze.map((e, index) => 
+                                        <Esperienza oggetto={e} idUtente={utente._id} token={token} id={e._id}  key={index} img={e.image} title={e.role} dataS={e.startDate} dataE={e.endDate} luogo={e.area} competenze={e.description}  ></Esperienza>
+                                    ))}
+
                                 </Row>
                             </div>
                         </Col>
