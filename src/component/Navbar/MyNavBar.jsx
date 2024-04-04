@@ -144,15 +144,15 @@ function MyNavBar() {
                             </div>
                           </div>
                           <div className="mx-4 mt-2 ">
-                            <Link to={"/Profilo"} className="d-flex justify-content-center" style={{ width: "16rem" }}>
+                            <div className="d-flex justify-content-center" style={{ width: "16rem" }}>
                               <MyButton
                                 text={"Visualizza Profilo"}
                                 colore={"primary"}
-                                link={"/Profilo"}
+                                // link={"/Profilo"}
                                 className="text-center"
                                 Style={{ width: "16rem" }}
                               ></MyButton>
-                            </Link>
+                            </div>
                           </div>
                           <div
                             className="empty_div_line_dropdown_profile mt-2 mx-2"
@@ -182,7 +182,7 @@ function MyNavBar() {
                           ></div>
 
                           <div className="mx-4 mt-2 ">
-                            <Link to={"/Profilo"} className="d-flex justify-content-center" style={{ width: "16rem" }}>
+                            {/* <Link to={"/Profilo"} className="d-flex justify-content-center" style={{ width: "16rem" }}>
                               <MyButton
                                 text={"Exit"}
                                 colore={"primary"}
@@ -190,16 +190,21 @@ function MyNavBar() {
                                 className="text-center pb-2"
                                 Style={{ width: "16rem" }}
                               ></MyButton>
-                            </Link>
+                            </Link> */}
                           </div>
                         </div>
                       </Dropdown.Menu>
                     </Dropdown>
+
+
+
+
+                    
                     {/* /////FINO DROPDOWN PROFILE BEGINNING//// */}
                     {/* /////DROPDOWN PROFILE RESPONSIVE//// */}
-                    <Dropdown className="position-relative">
+                    {/* <Dropdown className="position-relative">
                       <Dropdown.Toggle
-                        href="/Profilo"
+                        // href="/Profilo"
                         variant="light"
                         id="dropdown-basic"
                         className="position-absolute d-lg-none m-0 toggle_dropdown_navbar"
@@ -215,12 +220,10 @@ function MyNavBar() {
                           bottom: 0,
                         }}
                       ></Dropdown.Toggle>
-                    </Dropdown>
+                    </Dropdown> */}
                   </Nav.Link>
                 </div>
                 {/* /////////FIONO LINK PROFILO///////////////////////////////////////////////////////////// */}
-
-                {/* ///////////////////////////////////////LINK BUSINESS///////////////////////////////////////////// */}
                 <div className="icons_navbar icon_business_navbar">
                   <Nav.Link href="#" className="p-0">
                     <img src="/assets/business.svg" alt="business_icon mb-0" />
@@ -242,7 +245,7 @@ function MyNavBar() {
                 {/* /////////////////////////INIZIO ICONA TRE PUNTINI//////////////////////////////////////////////////////// */}
 
                 <div className="icons_navbar ">
-                  <Nav.Link href="#" className="p-0 position-relative">
+                  <div className="p-0 position-relative">
                     {" "}
                     {/*<a> Tre_punti */}
                     <img src="/assets/tre_punti.svg" alt="business_icon mb-0" className="icon_tre_punti_navbar" />
@@ -295,7 +298,7 @@ function MyNavBar() {
                         </div>
                       </Dropdown.Menu>
                     </Dropdown>
-                  </Nav.Link>
+                  </div>
                 </div>
               </Nav>
             </div>
