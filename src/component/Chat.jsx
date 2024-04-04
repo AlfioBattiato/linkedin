@@ -35,9 +35,21 @@ function Chat() {
                     <h6 className="text-success m-0 pb-2 border-bottom border-success border-3 w-50 text-center">In Evidenza</h6>
                     <h6 className="m-0 w-50 text-center border-bottom">Altro</h6>
                 </div>
+                <div className="row">
+                    <button type="button" className=" position-relative p-0 border-0 bg-white">
+                        <img src={state?.image} alt="avatar" width={"37rem"} height={"37rem"} className="rounded-circle object-fit-cover" />
+                        <span className="position-absolute bottom-0 start-100 translate-middle badge border border-light rounded-circle bg-success p-1"><span className="visually-hidden">unread messages</span></span>
+                    </button>
+
+                    <div>
+                        <h6 className="m-0 d-flex">Nome <span className="text-secondary ms-auto">7 feb</span></h6>
+                        <p>messaggio</p>
+                    </div>
+
+                </div>
 
 
-                
+
             </div>
 
 
