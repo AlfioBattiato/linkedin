@@ -34,13 +34,34 @@
 .icon_tre_punti_navbar {
   opacity: 0.7;
 }
-
-/*TRE_PUNTI DROPDOWN*/
-.dropdown-toggle::after {
-  display: none !important;
+/*DROPDOW PROFILE TESTE*/
+.toggle_dropdown_navbar {
+  border: 0 !important;
+  padding-top: 1px !important;
+  padding-bottom: 0 !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
-/* #basic-nav-dropdown {
-  padding: 0;
+
+/*TRE_PUNTI DROPDOWN*/ ////////////////////
+
+.div_box_menu_tre_punti_dropdown {
+  display: flex !important;
+}
+
+.dropdown_icon_tre_punti_navbar {
+  border: 0 !important;
+  padding: 0 !important;
+}
+@media (min-width: 551px) {
+  .mini_box_icons_dropdown_navbar {
+    display: none !important;
+  }
+}
+/* @media (max-width: 550px) {
+  .mini_box_icons_dropdown_navbar {
+    display:;
+  }
 } */
 
 /*MEDIA QUERY NAVBAR - ICONS*/
