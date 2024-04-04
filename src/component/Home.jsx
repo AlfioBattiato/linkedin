@@ -1,87 +1,258 @@
 import { Col, Container, Row } from "react-bootstrap";
 import MyButton from "./MyButton";
 
-function Home(){
-    return(<>
-    <Container className="py-5">
-            <Row className="gx-4 gy-2">
-                <Col xs={12} md={3}  >
-                    <div className="bg-white p-3 border rounded">
-                        <h6>Gestisci le tue notifiche</h6>
-                        <a href="#/" className="fw-semibold m-0 text-decoration-none">Impostazioni</a>
+function Home() {
+  return (
+    <>
+      <Container className="py-5">
+        <Row className="gx-4 gy-2">
+          <Col xs={12} md={3}>
+            <div className="bg-white  border rounded overflow-hidden">
+              <div className="position-relative">
+                <img
+                  className="w-100 object-fit-cover"
+                  height={"70rem"}
+                  src="https://images.unsplash.com/photo-1510519138101-570d1dca3d66?q=80&w=2047&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="copertina"
+                ></img>
+                <img
+                  className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle "
+                  width={"70rem"}
+                  height={"70rem"}
+                  src={
+                    "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                  }
+                  alt="avatar"
+                ></img>
+              </div>
+              <div className="border-bottom   d-flex flex-column align-items-center">
+                <h6 style={{ paddingTop: "4rem" }}>Serena Siliberti</h6>
+                <p className="sizeSmall">Digital Marketing Manager presso Automotive</p>
+              </div>
+              <div className="border-bottom" style={{ marginLeft: "10px" }}>
+                <p className="sizeSmall" style={{ marginTop: "20px" }}>
+                  Visitatori del profilo
+                </p>
+
+                <p className="sizeSmall" style={{ marginBottom: "20px" }}>
+                  Impressioni del post
+                </p>
+              </div>
+              <div className=" border-bottom" style={{ marginLeft: "10px" }}>
+                <p className="sizeSmall">Accedi a strumenti e informazioni in esclusiva</p>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  id="premium-chip-medium"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="24x24"
+                  width="24"
+                  height="24"
+                >
+                  <path
+                    d="M20 20a3.36 3.36 0 001-2.39V6.38A3.38 3.38 0 0017.62 3H6.38A3.36 3.36 0 004 4z"
+                    fill="#F8C77E"
+                  ></path>
+                  <path
+                    d="M4 4a3.36 3.36 0 00-1 2.38v11.24A3.38 3.38 0 006.38 21h11.24A3.36 3.36 0 0020 20z"
+                    fill="#E7A33E"
+                  ></path>
+                </svg>{" "}
+                <span className="sizeSmall"> Prova Premium per 0 euro</span>
+              </div>
+              <div style={{ marginLeft: "10px" }}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="bookmark-fill-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fill-opacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M13 4a3 3 0 00-3-3H3v14l5-4.5 5 4.5z" fill-opacity="0.9"></path>
+                </svg>
+                <span>I miei elementi</span>
+              </div>
+            </div>
+          </Col>
+          {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione centrale */}
+          <Col xs={12} md={9} lg={6}>
+            <Row className="gy-2">
+              <Col xs={12}>
+                <div className=" border rounded bg-white">
+                  <div className="d-flex p-2 gap-2 flex-wrap">
+                    <img
+                      src={
+                        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                      }
+                      alt="avatar"
+                      width={"50rem"}
+                      height={"50rem"}
+                      className="rounded-circle object-fit-cover"
+                    />
+                    <button type="button" class=" flex-grow-1 border rounded-pill text-start">
+                      Avvia un post
+                    </button>
+                  </div>
+
+                  <div className="d-flex mt-2 mb-2 justify-content-around">
+                    <div className="d-flex ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        id="image-medium"
+                        aria-hidden="true"
+                        role="none"
+                        data-supported-dps="24x24"
+                        fill="#000000"
+                        fill-opacity="0.9"
+                        width="24"
+                        height="24"
+                      >
+                        <path
+                          d="M19 4H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V7a3 3 0 00-3-3zm1 13a1 1 0 01-.29.71L16 14l-2 2-6-6-4 4V7a1 1 0 011-1h14a1 1 0 011 1zm-2-7a2 2 0 11-2-2 2 2 0 012 2z"
+                          fill-opacity="0.9"
+                        ></path>
+                      </svg>
+                      <h6>Contenuti multimediali</h6>
                     </div>
-
-                </Col>
-                {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione centrale */}
-                <Col xs={12} md={9} lg={6}>
-                    <Row className="gy-2">
-                        <Col xs={12}>
-                            <div className="d-flex p-2 gap-2 flex-wrap border rounded bg-white">
-                                <MyButton text={"Tutto"} colore={"success"}></MyButton>
-                                <MyButton text={"I miei post"} colore={"outline-secondary"}></MyButton>
-                                <MyButton text={"Menzioni"} colore={"outline-secondary"}></MyButton>
-                            </div>
-                        </Col>
-                        <Col xs={12} >
-                            <div className="rounded bg-white border p-3">
-                                <Row className="gy-2" >
-                                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
-                                        <img className="object-fit-cover" width={"55rem"} height={"55rem"} alt="img" src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&aut
-                                        o=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW1hem9ufGVufDB8fDB8fHww"></img>
-                                        <p style={{width:"70%"}} className="m-0 text-secondary sizeSmall">107 persone parteciperanno a un evento creato da Amazon Italia quest settimana. Vedi l'evento.</p>
-                                        <div className="ms-auto"> 
-                                            <p className="sizeSmall text-secondary m-0 ">25 minuti</p>
-                                            <p className="m-0 fs-4 text-end">...</p>
-                                        
-                                        </div>
-                                    </Col>
-                                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
-                                        <img className="object-fit-cover rounded-circle" width={"55rem"} height={"55rem"} alt="img" src="https://plus.unsplash.com/premium_photo-1686244745070-44e350da9d37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWFufGVufDB8fDB8fHww"></img>
-                                        <p style={{width:"70%"}} className="m-0 text-secondary sizeSmall"><strong>Denise Dimaio </strong>ha diffuso un aggiornamento sul recruting.</p>
-                                        <div className="ms-auto"> 
-                                            <p className="sizeSmall text-secondary m-0 ">2 ore</p>
-                                            <p className="m-0 fs-4 text-end">...</p>
-                                        
-                                        </div>
-                                    </Col>
-                                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
-                                        <img className="object-fit-cover rounded-circle" width={"55rem"} height={"55rem"} alt="img" src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fHww"></img>
-                                        <p style={{width:"70%"}} className="m-0 text-secondary sizeSmall"><strong>Alessio Biodi </strong>ha commentato il profilo di stefania Sperando:Arredare la solitudine una metafora...</p>
-                                        <div className="ms-auto"> 
-                                            <p className="sizeSmall text-secondary m-0 ">12 ore</p>
-                                            <p className="m-0 fs-4 text-end">...</p>
-                                        
-                                        </div>
-                                    </Col>
-                                 
-                                </Row>
-                            </div>
-                        </Col>
-                    </Row>
-
-                </Col>
-                {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione secondaria a destra */}
-                <Col xs={12} md={9} lg={3} className="ms-auto"  >
-
-                    <div className="bg-white p-3 border rounded">
-                        <div className="row">
-                            <span className="sizeSmall fw-semibold text-end">Annuncio ...</span>
-                            <p className="text-center sizeSmall ">utente, investi sul tuo futuro con questa offerta esclusiva </p>
-                        </div>
-                        <div className="d-flex justify-content-center gap-3">
-                            <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww" width={"65rem"} className="rounded-circle object-fit-cover" alt="..." />
-                            <img src="assets/logo.svg" width={"65rem"} alt="logo" />
-                        </div>
-                        <div className="text-center">
-                            <p className="text-center mt-3">50% di sconto su 2 mesi di Linkedln Premium!</p>
-                            <MyButton text={"50% di sconto"} colore={"outline-primary"}></MyButton>
-                        </div>
+                    <div className="d-flex pr-5 ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        id="calendar-medium"
+                        aria-hidden="true"
+                        role="none"
+                        data-supported-dps="24x24"
+                        fill="#000000"
+                        fill-opacity="0.9"
+                        width="24"
+                        height="24"
+                      >
+                        <path
+                          d="M3 3v15c0 1.66 1.34 3 3 3h12c1.66 0 3-1.34 3-3V3H3zm13 1.75a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-8 0a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM19 18c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1V9h14v9zM7 11h2v2H7v-2zm0 4h2v2H7v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2zm4-4h2v2h-2v-2zm0 4h2v2h-2v-2z"
+                          fill-opacity="0.9"
+                        ></path>
+                      </svg>
+                      <h6>Evento</h6>
                     </div>
+                    <div className="d-flex">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        id="content-align-left-medium"
+                        aria-hidden="true"
+                        role="none"
+                        data-supported-dps="24x24"
+                        fill="#000000"
+                        fill-opacity="0.9"
+                        width="24"
+                        height="24"
+                      >
+                        <path
+                          d="M21 3v2H3V3zm-6 6h6V7h-6zm0 4h6v-2h-6zm0 4h6v-2h-6zM3 21h18v-2H3zM13 7H3v10h10z"
+                          fill-opacity="0.9"
+                        ></path>
+                      </svg>
+                      <h6>Scrivi un articolo</h6>
+                    </div>
+                  </div>
+                </div>
 
-                </Col>
+                {/* <div className="d-flex p-2 gap-2 flex-wrap border rounded bg-white">
+                  <MyButton text={"Tutto"} colore={"success"}></MyButton>
+                  <MyButton text={"I miei post"} colore={"outline-secondary"}></MyButton>
+                  <MyButton text={"Menzioni"} colore={"outline-secondary"}></MyButton>
+                </div> */}
+              </Col>
+              <Col xs={12}>
+                <div className="rounded bg-white border p-3">
+                  <Row className="gy-2">
+                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
+                      <img
+                        className="object-fit-cover"
+                        width={"55rem"}
+                        height={"55rem"}
+                        alt="img"
+                        src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&aut
+                                        o=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW1hem9ufGVufDB8fDB8fHww"
+                      ></img>
+                      <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
+                        107 persone parteciperanno a un evento creato da Amazon Italia quest settimana. Vedi l'evento.
+                      </p>
+                      <div className="ms-auto">
+                        <p className="sizeSmall text-secondary m-0 ">25 minuti</p>
+                        <p className="m-0 fs-4 text-end">...</p>
+                      </div>
+                    </Col>
+                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
+                      <img
+                        className="object-fit-cover rounded-circle"
+                        width={"55rem"}
+                        height={"55rem"}
+                        alt="img"
+                        src="https://plus.unsplash.com/premium_photo-1686244745070-44e350da9d37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWFufGVufDB8fDB8fHww"
+                      ></img>
+                      <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
+                        <strong>Denise Dimaio </strong>ha diffuso un aggiornamento sul recruting.
+                      </p>
+                      <div className="ms-auto">
+                        <p className="sizeSmall text-secondary m-0 ">2 ore</p>
+                        <p className="m-0 fs-4 text-end">...</p>
+                      </div>
+                    </Col>
+                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
+                      <img
+                        className="object-fit-cover rounded-circle"
+                        width={"55rem"}
+                        height={"55rem"}
+                        alt="img"
+                        src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fHww"
+                      ></img>
+                      <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
+                        <strong>Alessio Biodi </strong>ha commentato il profilo di stefania Sperando:Arredare la
+                        solitudine una metafora...
+                      </p>
+                      <div className="ms-auto">
+                        <p className="sizeSmall text-secondary m-0 ">12 ore</p>
+                        <p className="m-0 fs-4 text-end">...</p>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
             </Row>
-
-        </Container>
-    </>)
+          </Col>
+          {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione secondaria a destra */}
+          <Col xs={12} md={9} lg={3} className="ms-auto">
+            <div className="bg-white p-3 border rounded">
+              <div className="row">
+                <span className="sizeSmall fw-semibold text-end">Annuncio ...</span>
+                <p className="text-center sizeSmall ">utente, investi sul tuo futuro con questa offerta esclusiva </p>
+              </div>
+              <div className="d-flex justify-content-center gap-3">
+                <img
+                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww"
+                  width={"65rem"}
+                  className="rounded-circle object-fit-cover"
+                  alt="..."
+                />
+                <img src="assets/logo.svg" width={"65rem"} alt="logo" />
+              </div>
+              <div className="text-center">
+                <p className="text-center mt-3">50% di sconto su 2 mesi di Linkedln Premium!</p>
+                <MyButton text={"50% di sconto"} colore={"outline-primary"}></MyButton>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
 }
 export default Home;
