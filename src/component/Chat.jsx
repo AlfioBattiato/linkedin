@@ -1,13 +1,16 @@
 import { useState } from "react"
 import { Col, Row } from "react-bootstrap"
 import { useSelector } from "react-redux"
+import { useLocation } from "react-router-dom"
 
 function Chat() {
     const state = useSelector(state => state.utente[0])
-    const [show,setShow]=useState("hidden")
+    const [show, setShow] = useState("hidden")
+    const location = useLocation()
+
 
     return (<>
-        <div className="chat bg-white position-fixed p-2 border  rounded">
+        {location.pathname === "/" ? (<></>) : (<div className="chat bg-white position-fixed p-2 border  rounded">
             <Row className="align-items-center">
                 <Col xs={2}>
                     <button type="button" className=" position-relative p-0 border-0 bg-white">
@@ -22,8 +25,8 @@ function Chat() {
                     <img src="/assets/Puntini.svg" alt="img" />
                 </Col>
                 <Col xs={2}>
-                    <img src={show==="hidden"?"/assets/svgexport-12.svg":"/assets/svgexport-18.svg"} alt="img"
-                    onClick={()=>show==="hidden"?setShow("show"):setShow("hidden")} />
+                    <img src={show === "hidden" ? "/assets/svgexport-12.svg" : "/assets/svgexport-18.svg"} alt="img"
+                        onClick={() => show === "hidden" ? setShow("show") : setShow("hidden")} />
                 </Col>
             </Row>
             <div className={`pt-3 ${show}`} >
@@ -35,7 +38,7 @@ function Chat() {
             </div>
 
 
-        </div>
+        </div>)}
 
 
     </>)

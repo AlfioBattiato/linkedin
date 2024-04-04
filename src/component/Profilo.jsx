@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Spinner from 'react-bootstrap/Spinner';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
-import { getFetch, putFetch } from "../redux/action";
+import { putFetch, putImg } from "../redux/action";
 
 
 
@@ -18,32 +18,6 @@ function Profilo() {
     const [image, setImage] = useState(null);
     const dispatch = useDispatch();
 
-    // fetch put
-    const postImage = (token, id, formData) => {
-
-        fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/picture`, {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            },
-            body: formData
-        })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error("Problema nella chiamata API");
-                }
-            })
-            .then((obj) => {
-
-            })
-            .catch((error) => {
-                console.log("ERRORE", error);
-            });
-
-    }
-    //
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
@@ -53,29 +27,16 @@ function Profilo() {
     };
 
     useEffect(() => {
-        if (utente) {
-            setAccount(utente);
-            dispatch(getFetch(token));
-        }
+        setAccount(utente);
     }, [utente, token, dispatch]);
-
-
-
+    
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        if (!image) {
-            alert("Seleziona un'immagine");
-            return;
-        }
-
         const formData = new FormData();
         formData.append('profile', image);
-
         handleClose();
-        postImage(token, account._id, formData);
         dispatch(putFetch(token, account));
-
+        dispatch(putImg(token, account._id, formData));
         alert("Profilo modificato correttamente");
 
     };

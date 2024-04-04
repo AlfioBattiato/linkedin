@@ -1,6 +1,7 @@
 export const PUT_TOKEN = 'PUT_TOKEN';
 export const GET_FETCH = 'GET_FETCH';
 export const PUT_FETCH = 'PUT_FETCH';
+export const PUT_IMG = 'PUT_IMG';
 
 
 
@@ -39,7 +40,7 @@ export const getFetch = (parametro) => {
             });
     }
 }
-export const putFetch = (token,oggetto) => {
+export const putFetch = (token, oggetto) => {
     return (dispatch, getState) => {
 
         fetch(`https://striveschool-api.herokuapp.com/api/profile/`, {
@@ -68,6 +69,36 @@ export const putFetch = (token,oggetto) => {
             .catch((error) => {
                 console.log("ERRORE", error);
             });
+    }
+}
+
+export const putImg = (token, id, formData) => {
+    return (dispatch, getState) => {
+        fetch(`https://striveschool-api.herokuapp.com/api/profile/${id}/picture`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+                dispatch({
+                    type: PUT_FETCH,
+                    payload: obj
+                })
+
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+
     }
 }
 
