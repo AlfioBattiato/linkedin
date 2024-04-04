@@ -4,8 +4,8 @@ import { ReactComponent as Matita } from '../svg/matita.svg'
 function Notifiche() {
     return (<>
         <Container className="py-5">
-            <Row className="gx-4">
-                <Col xs={12} md={2}  >
+        <Row className="gx-4 gy-2">
+                <Col xs={12} md={3}  >
                     <div className="bg-white p-3 border rounded">
                         <h6>Gestisci le tue notifiche</h6>
                         <a href="#/" className="fw-semibold m-0 text-decoration-none">Impostazioni</a>
@@ -13,7 +13,7 @@ function Notifiche() {
 
                 </Col>
                 {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione centrale */}
-                <Col xs={12} md={7}  >
+                <Col xs={12} md={9} lg={6}>
                     <Row className="gy-2">
                         <Col xs={12}>
                             <div className="d-flex p-2 gap-2 flex-wrap border rounded bg-white">
@@ -61,7 +61,7 @@ function Notifiche() {
 
                 </Col>
                 {/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////sezione secondaria a destra */}
-                <Col xs={12} md={3}  >
+                <Col xs={12} md={9} lg={3} className="ms-auto"  >
 
                     <div className="bg-white p-3 border rounded">
                         <div className="row">

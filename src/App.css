@@ -36,6 +36,13 @@
 img{
     cursor: pointer;
 }
+.pallino{
+    bottom: -6% !important;
+    left: 86% !important;
+    background-color:rgb(12, 146, 30);
+    padding: .31rem !important;
+    
+}
 .cursor:hover{
     cursor: pointer;
 
@@ -56,6 +63,13 @@ img{
 @media screen and (max-width:768px) {
     .chat{
         display: none;
+    }
+   
+}
+@media screen and (max-width:991px) {
+    .container{
+        max-width: 100%!important;
+        margin: 0!important;
     }
    
 }
