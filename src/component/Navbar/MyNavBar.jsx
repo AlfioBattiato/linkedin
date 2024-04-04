@@ -89,24 +89,7 @@ function MyNavBar() {
               </div>
 
               <NavDropdown title="Me" id="collapsible-nav-dropdown" className="p-0 dropdown-menu-left">
-                <div style={{ width: "18rem" }} className="dropdown-menu-right">
-                  <div className="px-2">
-                    <img
-                      src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-                      alt="draft_picture"
-                      width="30px"
-                      height={"30px"}
-                      className="image_dropdown_navbar object-fit-cover"
-                    />
-                    <div>
-                      <p className="fw-semibold">Amanda Marchetti</p>
-                      <p>Full Stack Developer</p>
-                    
-                        <MyButton text={"Visualizza Profilo"} colore={"primary"} link={"/Profilo"}></MyButton>
-                   
-                    </div>
-                  </div>
-                </div>
+                <div style={{ width: "18rem" }} className="dropdown-menu-right"></div>
                 <NavDropdown.Divider />
                 <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
               </NavDropdown>
@@ -117,13 +100,6 @@ function MyNavBar() {
                 <div className="d-flex justify-content-center"></div>
                 <img src="/assets/business.svg" alt="business_icon mb-0" />
                 <NavDropdown title="Business" id="collapsible-nav-dropdown">
-                  <div>
-                    <div>
-                      <div>
-                        <p>to fix....</p>
-                      </div>
-                    </div>
-                  </div>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                 </NavDropdown>

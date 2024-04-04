@@ -1,7 +1,7 @@
-/* .Logo_navbar_fixed {
+.Logo_navbar_fixed {
   margin: 0;
   padding: 0;
-} */
+}
 .container_logo_navbar_fixed {
   width: 5vw;
   margin: 0;
@@ -23,6 +23,6 @@
 .icons_navbar:hover {
   color: black;
 }
-#collapsible-nav-dropdown{
-  padding: 0px!important;
+#collapsible-nav-dropdown {
+  padding: 0px !important;
 }
