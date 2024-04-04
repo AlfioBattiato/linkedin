@@ -20,10 +20,10 @@
   text-align: center;
   cursor: pointer;
 }
-.icon_home_navebar:hover {
-  color: black;
-  opacity: 1;
+#home_icon_nav:hover {
+  color: black !important;
 }
+
 #collapsible-nav-dropdown {
   padding: 0px !important;
 }
@@ -52,19 +52,54 @@
     display: block;
   }
 }
+@media (min-width: 551px) {
+  .icon_tre_punti_navbar {
+    display: none;
+  }
+  .icon_business_dropdown_navbar {
+    display: none;
+  }
+  .dropdown_icon_tre_punti_navbar {
+    display: none;
+  }
+}
 @media (max-width: 469px) {
   .icon_profile_navbar {
     display: none;
   }
 }
-
-@media (min-width: 551px) {
-  .icon_tre_punti_navbar {
+@media (min-width: 470px) {
+  .icon_profile_dropdown_navbar {
     display: none;
   }
 }
-@media (min-width: 470px) {
-  .icon_profile_dropdown_navbar {
+@media (max-width: 388px) {
+  .icon_bell_navbar {
+    display: none;
+  }
+}
+@media (min-width: 389px) {
+  .icon_bell_dropdown_navbar {
+    display: none;
+  }
+}
+@media (max-width: 338px) {
+  .icon_messages_navbar {
+    display: none;
+  }
+}
+@media (min-width: 339px) {
+  .icon_messages_dropdown_navbar {
+    display: none;
+  }
+}
+@media (max-width: 288px) {
+  .icon_jobs_navbar {
+    display: none;
+  }
+}
+@media (min-width: 289px) {
+  .icon_jobs_dropdown_navbar {
     display: none;
   }
 }
