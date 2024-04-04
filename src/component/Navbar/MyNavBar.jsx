@@ -43,7 +43,7 @@ function MyNavBar() {
                     src="/assets/cerca.svg"
                     alt="research_icon"
                     className="d-none d-lg-block position-absolute research_icon_navbar"
-                    style={{ right: 0, left: 17, top: 0, bottom: 0 }}
+                    style={{ right: 0, left: 26, top: 0, bottom: 0 }}
                   />
                   <Form.Control
                     type="text"
