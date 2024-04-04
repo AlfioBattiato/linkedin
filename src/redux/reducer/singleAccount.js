@@ -7,7 +7,8 @@ import { PUT_IMG } from "../action";
 
 const initialState = {
     apikey: [],
-    utente: []
+    utente: [],
+    esperienze: []
 
 }
 

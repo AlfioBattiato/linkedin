@@ -14,22 +14,41 @@ function Profilo() {
     const utente = useSelector(state => state.utente[0]);
     const token = useSelector(state => state.apikey[0]);
     const [show, setShow] = useState(false);
+    const [showEsperienze, setShowEsperienze] = useState(false);
     const [account, setAccount] = useState(utente);
     const [image, setImage] = useState(null);
-    const dispatch = useDispatch();
+    const [esperienza, setEsperienza] = useState(
+        {
+            "role": "Full Stack Web Developer",
+            "company": "FizzBuzz",
+            "startDate": "2022-06-16",
+            "endDate": "2023-06-16", // può essere null
+            "description": "Implementing new features",
+            "area": "Milan",
+            "image": "", // SERVER GENERATED, modificabile
+        });
 
+
+    const dispatch = useDispatch();
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    const math = () => {
+        return Math.floor(Math.random() * 1000);
+    }
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setImage(file);
     };
+    const esperienzaSubmit = (e) => {
+        e.preventDefault()
+      console.log(esperienza)
+    };
 
     useEffect(() => {
         setAccount(utente);
     }, [utente, token, dispatch]);
-    
+
     const handleSubmit = (e) => {
         e.preventDefault();
         const formData = new FormData();
@@ -115,21 +134,21 @@ function Profilo() {
                                     <Col xs={12} md={4} className="d-flex align-items-start gap-2">
                                         <img alt="img" src="/assets/people.svg"></img>
                                         <div>
-                                            <h6>68 visualizzazioni del profilo</h6>
+                                            <h6>{math()} visualizzazioni del profilo</h6>
                                             <p className="m-0 text-secondary sizeSmall">Scopri chi ha visitato il tuo profilo.</p>
                                         </div>
                                     </Col>
                                     <Col xs={12} md={4} className="d-flex align-items-start gap-2">
                                         <img alt="img" src="/assets/freccia.svg"></img>
                                         <div>
-                                            <h6>243 impressioni del post</h6>
+                                            <h6>{math()} impressioni del post</h6>
                                             <p className="m-0 text-secondary sizeSmall">Scopri chi sta interagendo con i tuoi post.</p>
                                         </div>
                                     </Col>
                                     <Col xs={12} md={4} className="d-flex align-items-start gap-2 pb-4">
                                         <img alt="img" src="/assets/cerca.svg"></img>
                                         <div>
-                                            <h6>12 comparse nei motori di ricerca</h6>
+                                            <h6>{math()} comparse nei motori di ricerca</h6>
                                             <p className="m-0 text-secondary sizeSmall">Vedi quante volte compari nei risultati di ricerca</p>
                                         </div>
                                     </Col>
@@ -147,12 +166,51 @@ function Profilo() {
 
                         <Col xs={12} className="border rounded p-0 overflow-hidden bg-white position-relative" >
                             <div className="d-flex gap-4 position-absolute end-0 m-3">
-                                <img src="/assets/+.svg" width={"25rem"} alt="img" />
+                                <img src="/assets/+.svg" width={"25rem"} alt="img"
+                                    onClick={() => setShowEsperienze(!showEsperienze)} />
                                 <img src="/assets/matita.svg" alt="img" />
 
                             </div>
                             <div className="px-4 py-4">
                                 <h5>Esperienza</h5>
+                                <Modal show={showEsperienze} onHide={()=>setShowEsperienze(!showEsperienze)}>
+                                    <Modal.Header closeButton>
+                                        <Modal.Title>Modifica Profilo</Modal.Title>
+                                    </Modal.Header>
+                                    <Modal.Body>
+                                        <form onSubmit={esperienzaSubmit}>
+                                            <div className="mb-3">
+                                                <label htmlFor="avatar" className="form-label">Immagine</label>
+                                                <br></br>
+                                                <input type="file" id="avatar" accept="image/*" onChange={handleImageChange} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="Titolo" className="form-label">Titolo</label>
+                                                <input  type="text" className="form-control" id="Titolo"onChange={(e) => setEsperienza({ ...esperienza, role: e.target.value })} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="Inizio" className="form-label">Inizio Data</label>
+                                                <input type="text" className="form-control" id="Inizio"  onChange={(e) => setEsperienza({ ...esperienza, startDate: e.target.value })} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="Fine" className="form-label">Fine Data</label>
+                                                <input type="text" className="form-control" id="Fine" onChange={(e) => setEsperienza({ ...esperienza, endDate: e.target.value })} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="Luogo" className="form-label">Luogo</label>
+                                                <input type="text" className="form-control" id="Luogo"  onChange={(e) => setEsperienza({ ...esperienza, area: e.target.value })} />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label htmlFor="Competenze" className="form-label">Competenze</label>
+                                                <input type="text" className="form-control" id="Competenze" onChange={(e) => setEsperienza({ ...esperienza, description: e.target.value })} />
+                                            </div>
+                                            <div className="d-flex">
+                                                <button type="submit" className="btn btn-success ms-auto">Salva</button>
+                                            </div>
+                                        </form>
+
+                                    </Modal.Body>
+                                </Modal>
                                 <Row className="">
                                     <Col xs={12} className="d-flex align-items-start gap-3 pt-3">
                                         <img width={"55rem"} height={"55rem"} alt="img" src="https://images.unsplash.com/photo-1573141597928-403fcee0e056?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z29vZ2xlfGVufDB8fDB8fHww"></img>

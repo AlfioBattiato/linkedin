@@ -36,6 +36,10 @@
 img{
     cursor: pointer;
 }
+.cursor:hover{
+    cursor: pointer;
+
+}
 .show{
     display: block;
 }

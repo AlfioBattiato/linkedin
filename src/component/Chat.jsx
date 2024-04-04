@@ -35,6 +35,9 @@ function Chat() {
                     <h6 className="text-success m-0 pb-2 border-bottom border-success border-3 w-50 text-center">In Evidenza</h6>
                     <h6 className="m-0 w-50 text-center border-bottom">Altro</h6>
                 </div>
+
+
+                
             </div>
 
 
