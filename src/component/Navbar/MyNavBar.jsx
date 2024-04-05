@@ -3,10 +3,16 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navbar.css";
 import { Form, Dropdown, Button, } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 function MyNavBar() {
+  const[show,setShow]=useState(false)
+  const navigate=useNavigate()
+  const toggleDropdown=()=>{
+
+    setShow(!show)
+  }
  
 
   return (
@@ -101,8 +107,8 @@ function MyNavBar() {
                   {/* /////DROPDOWN PROFILE BEGINNING//// */}
                   <Dropdown>
                     <Dropdown.Toggle
-                     id="dropdown-basic"
-                    //  onClick={toggleDropdown}
+                    //  id="dropdown-basic"
+                     onClick={toggleDropdown}
                       variant="light"
                       className="position-relative d-none d-md-block m-0 toggle_dropdown_navbar"
                       style={{ color: "gray", height: "25px" }}
@@ -112,6 +118,7 @@ function MyNavBar() {
                     <Dropdown.Menu
                      className={`position-absolute`}
                       style={{ right: 10, left: -255, top: 24, bottom: 0, height: "23rem", width: "18rem" }}
+                      show={show}
                     >
                       <div style={{ width: "18rem" }}>
                         <div className="d-flex px-1 py-1 justify-content-start align-items-center ">
@@ -132,9 +139,13 @@ function MyNavBar() {
                           </div>
                         </div>
                         <div className="px-4 border-bottom pb-2">
-                        <Link to={"/Profilo"} >
-                          <Button variant="outline-primary" className="sizeSmall rounded-pill fw-semibold py-1 w-100" >Visualizza profilo</Button>
-                         </Link>
+                      
+                          <Button variant="outline-primary" className="sizeSmall rounded-pill fw-semibold py-1 w-100"   onClick={()=>
+                            {toggleDropdown()
+                            navigate("/Profilo")}
+                          }
+                             >Visualizza profilo</Button>
+                       
                         </div>
                         <div className="px-4 border-bottom">
                           <h6>Account</h6>

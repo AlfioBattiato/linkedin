@@ -2,6 +2,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import MyButton from "./MyButton";
 
 function Home() {
+  const utente = useSelector(state => state.utente);
   return (
     <>
       <Container className="py-5">
@@ -25,21 +26,21 @@ function Home() {
                   alt="avatar"
                 ></img>
               </div>
-              <div className="border-bottom   d-flex flex-column align-items-center">
+              <div className="border-bottom  text-center">
                 <h6 style={{ paddingTop: "4rem" }}>Serena Siliberti</h6>
-                <p className="sizeSmall">Digital Marketing Manager presso Automotive</p>
+                <p className="sizeSmall text-secondary">Digital Marketing Manager presso Automotive</p>
               </div>
-              <div className="border-bottom" style={{ marginLeft: "10px" }}>
-                <p className="sizeSmall" style={{ marginTop: "20px" }}>
-                  Visitatori del profilo
+              <div className="border-bottom p-3" >
+                <p className="sizeSmall text-secondary m-0 d-flex " >
+                  Visitatori del profilo <span className="text-primary ms-auto">96</span>
                 </p>
 
-                <p className="sizeSmall" style={{ marginBottom: "20px" }}>
-                  Impressioni del post
+                <p className="sizeSmall text-secondary mt-1 mb-0 d-flex">
+                  Impressioni del post <span className="text-primary ms-auto">258</span>
                 </p>
               </div>
-              <div className=" border-bottom" style={{ marginLeft: "10px" }}>
-                <p className="sizeSmall">Accedi a strumenti e informazioni in esclusiva</p>
+              <div className=" border-bottom ps-2" >
+                <p className="sizeSmall text-secondary ps-1">Accedi a strumenti e informazioni in esclusiva</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24"
@@ -61,7 +62,7 @@ function Home() {
                 </svg>{" "}
                 <span className="sizeSmall"> Prova Premium per 0 euro</span>
               </div>
-              <div style={{ marginLeft: "10px" }}>
+              <div className="d-flex align-items-center ps-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 16 16"
@@ -76,7 +77,7 @@ function Home() {
                 >
                   <path d="M13 4a3 3 0 00-3-3H3v14l5-4.5 5 4.5z" fillOpacity="0.9"></path>
                 </svg>
-                <span>I miei elementi</span>
+                <p className="py-1 m-0"> I miei elementi</p>
               </div>
             </div>
           </Col>
@@ -100,8 +101,8 @@ function Home() {
                     </button>
                   </div>
 
-                  <div className="d-flex mt-2 mb-2 justify-content-around">
-                    <div className="d-flex ">
+                  <div className="d-flex mt-2 mb-2 justify-content-around ">
+                    <div className="d-flex align-items-center ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -109,7 +110,7 @@ function Home() {
                         aria-hidden="true"
                         role="none"
                         data-supported-dps="24x24"
-                        fill="#000000"
+                        fill="#378FE9"
                         fillOpacity="0.9"
                         width="24"
                         height="24"
@@ -119,9 +120,9 @@ function Home() {
                           fillOpacity="0.9"
                         ></path>
                       </svg>
-                      <h6>Contenuti multimediali</h6>
+                      <h6 className="sizeSmall m-0">Contenuti multimediali</h6>
                     </div>
-                    <div className="d-flex pr-5 ">
+                    <div className="d-flex pr-5 align-items-center ">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -129,7 +130,7 @@ function Home() {
                         aria-hidden="true"
                         role="none"
                         data-supported-dps="24x24"
-                        fill="#000000"
+                        fill="#A871EA"
                         fillOpacity="0.9"
                         width="24"
                         height="24"
@@ -139,9 +140,9 @@ function Home() {
                           fillOpacity="0.9"
                         ></path>
                       </svg>
-                      <h6>Evento</h6>
+                      <h6 className="sizeSmall m-0">Evento</h6>
                     </div>
-                    <div className="d-flex">
+                    <div className="d-flex align-items-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
@@ -149,7 +150,7 @@ function Home() {
                         aria-hidden="true"
                         role="none"
                         data-supported-dps="24x24"
-                        fill="#000000"
+                        fill="#E06847"
                         fillOpacity="0.9"
                         width="24"
                         height="24"
@@ -159,7 +160,7 @@ function Home() {
                           fillOpacity="0.9"
                         ></path>
                       </svg>
-                      <h6>Scrivi un articolo</h6>
+                      <h6 className="sizeSmall m-0 ">Scrivi un articolo</h6>
                     </div>
                   </div>
                 </div>
