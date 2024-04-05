@@ -275,7 +275,16 @@ function Home() {
               </div>
             </div>
             <div className="text-center" style={{ fontSize: "12px", paddingTop: "2rem" }}>
-              <p className="mb-1 text-secondary"> Informazioni&nbsp;&nbsp; Accessibilità </p>
+            <div className="bg-white  border rounded overflow-hidden">
+              <img
+                width="100%"
+                src="https://media.licdn.com/dms/image/D560CAQFkIq7o5lzUng/spinmail-bannerimage-shrink_300_250/0/1645116818974?e=1712919600&amp;v=beta&amp;t=9z98MtYIUb3sZp6lCuAhwN_v0ENRJv3PA5CLuJRsy2E"
+                height="250"
+                id="ember1013"
+                className="img_ad msg-spinmail-ad evi-image ember-view object-fit-contain"
+              ></img>
+            </div>
+              <p className="mb-1 mt-2 text-secondary"> Informazioni&nbsp;&nbsp; Accessibilità </p>
               <p className="mb-1 text-secondary">
                 {" "}
                 Centro assistenza&nbsp;&nbsp; Privacy e condizioni
