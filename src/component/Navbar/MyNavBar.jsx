@@ -3,21 +3,24 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navbar.css";
 import { Form, Dropdown, Button, } from "react-bootstrap";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function MyNavBar() {
-  const[show,setShow]=useState(false)
-  const navigate=useNavigate()
-  const toggleDropdown=()=>{
+  const utente = useSelector(state => state.utente);
+  const [show, setShow] = useState(false)
+  const navigate = useNavigate()
+  const toggleDropdown = () => {
 
     setShow(!show)
   }
- 
+
 
   return (
     // {/* ////////////////////////////////////NAVBAR BEGINNING ////////////////////////////////////////// */}
-    <Navbar collapseOnSelect expand="xs" className="flex-xs-row-reverse bg-body-tertiary">
+    <Navbar collapseOnSelect expand="xs" className="flex-xs-row-reverse bg-body-tertiary py-0">
       <Container className="d-flex justify-content-center">
         <div className="d-flex">
           {/* ////////////////////////////////////LINK ICONA LOGO////////////////////////////////////////// */}
@@ -37,15 +40,15 @@ function MyNavBar() {
           <div className="d-flex">
             <div className=" gap-5 d-flex ">
               <Nav className="d-flex flex-row align-items-center gap-4">
-                <div className="d-flex justify-content-center position-relative ">
-                  <div className="ms-md-3">
+                <div className="d-flex justify-content-center position-relative">
+                  <div className="ms-md-3 ">
                     <img
                       src="/assets/cerca_bold.svg"
                       alt="cerca_bold"
                       className="ms-1 d-lg-none cerca_bold_icon_navbar"
                       style={{ width: "25px" }}
                     />
-                    <p className="d-none d-md-block d-lg-none m-0"> Cerca</p>
+                    <p className="d-none d-md-block d-lg-none m-0 sixnavbar"> Cerca</p>
                   </div>
                   <img
                     src="/assets/cerca.svg"
@@ -57,49 +60,48 @@ function MyNavBar() {
                     type="text"
                     placeholder="Cerca"
                     className="d-none d-lg-block research_input_form_navbar pe-0"
-                    style={{ width: "80%", paddingLeft: "1.8rem" }}
+                    style={{ width: "80%", paddingLeft: "1.8rem" ,height:"50%" }}
                   />
                 </div>
                 {/* ////////////////////////////////////LINK HOME ////////////////////////////////////////// */}
                 <div className="icons_navbar">
                   <Nav.Link href="/Home" className="p-0 icon_home_navebar">
                     <img src="/assets/home.svg" alt="home_icon" id="home_icon_nav" />
-                    <p className="d-none d-md-block m-0"> Home</p>
+                    <p className="d-none d-md-block m-0 sixnavbar"> Home</p>
                   </Nav.Link>
                 </div>
                 {/* /////////FINO LINK HOME ///////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar">
                   <Nav.Link href="/Rete" className="p-0">
                     <img src="/assets/people.svg" alt="network_icon" />
-                    <p className="d-none d-md-block m-0">Network</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Network</p>
                   </Nav.Link>
                 </div>
                 {/* ///////FINO LINK NETWORK ////////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_jobs_navbar">
                   <Nav.Link href="/Lavoro" className="p-0 ">
                     <img src="/assets/work.svg" alt="jobs_icon" />
-                    <p className="d-none d-md-block m-0">Jobs</p>
+                    <p className="d-none d-md-block m-0 sixnavbar" >Jobs</p>
                   </Nav.Link>
                 </div>
                 {/* ///////FINO LINK JOBS ////////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_messages_navbar">
                   <Nav.Link href="/Messagistica" className="p-0">
                     <img src="/assets/message.svg" alt="messages_icon" />
-                    <p className="d-none d-md-block m-0">Messages</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Messages</p>
                   </Nav.Link>
                 </div>
                 {/* ///FINO LINK MESSAGES ////////////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_bell_navbar">
                   <Nav.Link href="/Notifiche" className="p-0">
                     <img src="/assets/campana.svg" alt="notification_icon" />
-                    <p className="d-none d-md-block m-0">Notifications</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Notifications</p>
                   </Nav.Link>
                 </div>
                 {/* ///////FINO LINK NOTIFICATIONS//////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_profile_navbar">
                   <img
-                    src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-                    alt="profile_picture"
+                    src={utente.image} alt="profile_picture"
                     width={"25px"}
                     height={"25px"}
                     className="image_dropdown_navbar object-fit-cover"
@@ -107,27 +109,27 @@ function MyNavBar() {
                   {/* /////DROPDOWN PROFILE BEGINNING//// */}
                   <Dropdown>
                     <Dropdown.Toggle
-                    //  id="dropdown-basic"
-                     onClick={toggleDropdown}
+                      //  id="dropdown-basic"
+                      onClick={toggleDropdown}
                       variant="light"
-                      className="position-relative d-none d-md-block m-0 toggle_dropdown_navbar"
+                      className="position-relative d-none d-md-block m-0 toggle_dropdown_navbar sixnavbar"
                       style={{ color: "gray", height: "25px" }}
                     >
                       Me
                     </Dropdown.Toggle>
                     <Dropdown.Menu
-                     className={`position-absolute`}
+                      className={`position-absolute`}
                       style={{ right: 10, left: -255, top: 24, bottom: 0, height: "23rem", width: "18rem" }}
                       show={show}
                     >
                       <div style={{ width: "18rem" }}>
                         <div className="d-flex px-1 py-1 justify-content-start align-items-center ">
-                          <div className="d-flex " style={{ width: "52px" }}>
+                          <div className="d-flex">
                             <img
-                              src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                              src={utente.image}
                               alt="draft_picture"
-                              width={"60px"}
-                              height={"60px"}
+                              width={"55px"}
+                              height={"55px"}
                               className="image_dropdown_navbar object-fit-cover ms-1"
                             />
                           </div>
@@ -139,13 +141,14 @@ function MyNavBar() {
                           </div>
                         </div>
                         <div className="px-4 border-bottom pb-2">
-                      
-                          <Button variant="outline-primary" className="sizeSmall rounded-pill fw-semibold py-1 w-100"   onClick={()=>
-                            {toggleDropdown()
-                            navigate("/Profilo")}
+
+                          <Button variant="outline-primary" className="sizeSmall rounded-pill fw-semibold py-1 w-100" onClick={() => {
+                            toggleDropdown()
+                            navigate("/Profilo")
                           }
-                             >Visualizza profilo</Button>
-                       
+                          }
+                          >Visualizza profilo</Button>
+
                         </div>
                         <div className="px-4 border-bottom">
                           <h6>Account</h6>
@@ -174,7 +177,7 @@ function MyNavBar() {
                       <Dropdown.Toggle
                         variant="light"
                         id="dropdown-basic"
-                        className="position-relative d-none d-md-block m-0 toggle_dropdown_navbar"
+                        className="position-relative d-none d-md-block m-0 toggle_dropdown_navbar sixnavbar"
                         style={{ color: "gray", height: "25px" }}
                       >
                         Business

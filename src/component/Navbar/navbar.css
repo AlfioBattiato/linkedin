@@ -23,7 +23,9 @@
 #home_icon_nav:hover {
   color: black !important;
 }
-
+.sixnavbar{
+  font-size: 12px;
+}
 #collapsible-nav-dropdown {
   padding: 0px !important;
 }
