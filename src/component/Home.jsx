@@ -9,6 +9,7 @@ function Home() {
   const utente = useSelector((state) => state.utente);
   const allpost = useSelector((state) => state.post);
   const token = useSelector((state) => state.apikey[0]);
+  const [number,setNumber]=useState(8)
   const [myPost, setMyPost] = useState({
     text: "Questo è un nuovo post", // L'unica proprietà richiesta!
   });
@@ -238,10 +239,15 @@ function Home() {
               <Col xs={12}>
                 <Row className="">
                   {allpost.length > 0 && (
-                    allpost.slice(-8).reverse().map((e, index) => (
+                    allpost.slice(-number).reverse().map((e, index) => (
                       <Post idPost={e._id} idUtente={e.user._id===utente._id?utente._id:NaN} key={index} username={e.username} text={e.text} createdAt={e.createdAt} image={e.image ? e.image : ""} imgP={e.user.image ? e.user.image : "https://www.shutterstock.com/image-illustration/user-avatar-icon-sign-profile-260nw-1182889762.jpg"}></Post>
                     ))
                   )}
+                </Row>
+                <Row>
+                  <Col>
+                  <h6 className="text-center rounded bg-white p-1 cursor" onClick={()=>setNumber(number+8)}>Mostra altro <i class="bi bi-caret-down-fill"></i></h6>
+                  </Col>
                 </Row>
               </Col>
             </Row>
