@@ -93,6 +93,50 @@ function Notifiche() {
                 className="img_ad msg-spinmail-ad evi-image ember-view object-fit-contain"
               ></img>
             </div>
+            <div className="text-center" style={{ fontSize: "12px", paddingTop: "2rem" }}>
+              <p className="mb-1 text-secondary"> Informazioni&nbsp;&nbsp; Accessibilità </p>
+              <p className="mb-1 text-secondary">
+                {" "}
+                Centro assistenza&nbsp;&nbsp; Privacy e condizioni
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="caret-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fill-opacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M8 11L3 6h10z" fill-rule="evenodd" fill-opacity="0.9"></path>
+                </svg>{" "}
+              </p>
+              <p className="mb-1 text-secondary">Opzioni per gli annunci pubblicitari </p>
+              <p className="mb-1 text-secondary">
+                Pubblicità&nbsp;&nbsp; Servizi alle aziende{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="caret-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fill-opacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M8 11L3 6h10z" fill-rule="evenodd" fill-opacity="0.9"></path>
+                </svg>
+              </p>
+              <p className="text-secondary"> Scarica l’app &nbsp;&nbsp;LinkedIn Altro</p>
+              <div>
+                <img src="../assets/linkedin.svg" alt="linkedin-logo" width={"56px"} />
+                LinkedIn Corporation © 2024
+              </div>
+            </div>
           </Col>
         </Row>
       </Container>
