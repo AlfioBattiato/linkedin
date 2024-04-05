@@ -1,8 +1,11 @@
 import { Col, Container, Row } from "react-bootstrap";
 import MyButton from "./MyButton";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function Home() {
   const utente = useSelector(state => state.utente);
+
   return (
     <>
       <Container className="py-5">
@@ -17,17 +20,15 @@ function Home() {
                   alt="copertina"
                 ></img>
                 <img
-                  className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 startP translate-middle "
+                  className="rounded-circle object-fit-cover border border-white border-3 position-absolute position-absolute top-100 start-50 translate-middle "
                   width={"70rem"}
                   height={"70rem"}
-                  src={
-                    "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-                  }
+                  src={utente.image}
                   alt="avatar"
                 ></img>
               </div>
               <div className="border-bottom  text-center">
-                <h6 style={{ paddingTop: "4rem" }}>Serena Siliberti</h6>
+                <h6 style={{ paddingTop: "4rem" }}>{utente.name} {utente.surname}</h6>
                 <p className="sizeSmall text-secondary">Digital Marketing Manager presso Automotive</p>
               </div>
               <div className="border-bottom p-3" >
@@ -88,9 +89,7 @@ function Home() {
                 <div className=" border rounded bg-white">
                   <div className="d-flex p-2 gap-2 flex-wrap">
                     <img
-                      src={
-                        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-                      }
+                      src={utente.image}
                       alt="avatar"
                       width={"50rem"}
                       height={"50rem"}
@@ -165,63 +164,35 @@ function Home() {
                   </div>
                 </div>
 
-              
+
               </Col>
+
+              {/* inizio post */}
               <Col xs={12}>
-                <div className="rounded bg-white border p-3">
-                  <Row className="gy-2">
-                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
-                      <img
-                        className="object-fit-cover"
-                        width={"55rem"}
-                        height={"55rem"}
-                        alt="img"
-                        src="https://images.unsplash.com/photo-1523474253046-8cd2748b5fd2?w=500&aut
-                                        o=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW1hem9ufGVufDB8fDB8fHww"
-                      ></img>
-                      <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
-                        107 persone parteciperanno a un evento creato da Amazon Italia quest settimana. Vedi l'evento.
-                      </p>
-                      <div className="ms-auto">
-                        <p className="sizeSmall text-secondary m-0 ">25 minuti</p>
-                        <p className="m-0 fs-4 text-end">...</p>
+                <Row className="gy-2">
+
+                  <Col xs={12} className="d-flex align-items-center gap-3  py-2 ">
+                    <div className="container bg-white hov py-2 rounded">
+                      <div className="d-flex gap-2 align-items-center">
+                        <img
+                          className="object-fit-cover rounded-circle"
+                          width={"40rem"}
+                          height={"40rem"}
+                          alt="img"
+                          src="https://plus.unsplash.com/premium_photo-1686244745070-44e350da9d37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWFufGVufDB8fDB8fHww"
+                        ></img>
+                        <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
+                          <strong>Denise Dimaio </strong>ha diffuso...
+                        </p>
+                        <p className="sizeSmall text-secondary m-0 ">2 ore </p>
                       </div>
-                    </Col>
-                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
-                      <img
-                        className="object-fit-cover rounded-circle"
-                        width={"55rem"}
-                        height={"55rem"}
-                        alt="img"
-                        src="https://plus.unsplash.com/premium_photo-1686244745070-44e350da9d37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWFufGVufDB8fDB8fHww"
-                      ></img>
-                      <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
-                        <strong>Denise Dimaio </strong>ha diffuso un aggiornamento sul recruting.
-                      </p>
-                      <div className="ms-auto">
-                        <p className="sizeSmall text-secondary m-0 ">2 ore</p>
-                        <p className="m-0 fs-4 text-end">...</p>
-                      </div>
-                    </Col>
-                    <Col xs={12} className="d-flex align-items-center gap-3 hov py-2">
-                      <img
-                        className="object-fit-cover rounded-circle"
-                        width={"55rem"}
-                        height={"55rem"}
-                        alt="img"
-                        src="https://images.unsplash.com/photo-1480429370139-e0132c086e2a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFufGVufDB8fDB8fHww"
-                      ></img>
-                      <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
-                        <strong>Alessio Biodi </strong>ha commentato il profilo di stefania Sperando:Arredare la
-                        solitudine una metafora...
-                      </p>
-                      <div className="ms-auto">
-                        <p className="sizeSmall text-secondary m-0 ">12 ore</p>
-                        <p className="m-0 fs-4 text-end">...</p>
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
+                      <p className="pt-2 ">ciaoooooo</p>
+
+                    </div>
+                  </Col>
+
+                </Row>
+
               </Col>
             </Row>
           </Col>
@@ -234,8 +205,9 @@ function Home() {
               </div>
               <div className="d-flex justify-content-center gap-3">
                 <img
-                  src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww"
+                  src={utente.image}
                   width={"65rem"}
+                  height={"65rem"}
                   className="rounded-circle object-fit-cover"
                   alt="..."
                 />

@@ -25,7 +25,7 @@
 }
 .hov:hover{
     cursor: pointer;
-    background-color: #D7E9FB;
+    background-color: #D7E9FB!important;
 }
 .chat{
     max-width: 21rem;
