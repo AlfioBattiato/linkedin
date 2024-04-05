@@ -3,6 +3,7 @@ export const GET_FETCH = 'GET_FETCH';
 export const GET_ESPERIENZE = 'GET_ESPERIENZE';
 export const PUT_FETCH = 'PUT_FETCH';
 export const PUT_IMG = 'PUT_IMG';
+export const GET_ALLPOST = 'GET_ALLPOST';
 
 // export const POST_ESPERIENZA = 'POST_ESPERIENZA';
 
@@ -244,6 +245,91 @@ export const deleteExperience = (token, idUtente, idExp) => {
             });
     }
 }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// post
 
+export const getAllPost = (token) => {
+    return (dispatch, getState) => {
 
+        fetch(`https://striveschool-api.herokuapp.com/api/posts/`, {
+            headers: {
+                Authorization: `Bearer ${token}` 
+            }
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+                dispatch({
+                    type: GET_ALLPOST,
+                    payload: obj
+                })
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+    }
+}
+export const postaPost = (token, oggetto,formData) => {
+    return (dispatch, getState) => {
+        fetch(`https://striveschool-api.herokuapp.com/api/posts/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body:JSON.stringify( oggetto)
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+                console.log(obj)
+              
+             if(formData){
+                 dispatch(putImgPost(token,formData,obj._id));
+             }else{
+                dispatch(getAllPost(token));
+             }
 
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+
+    }
+}
+export const putImgPost = (token,formData,postid) => {
+    return (dispatch, getState) => {
+        fetch(` https://striveschool-api.herokuapp.com/api/posts/${postid}/`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+              
+                dispatch(getAllPost(token));})
+
+            
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+
+    }
+}

@@ -28,7 +28,7 @@ function Esperienza(props) {
     const handleImageChange = (e) => {
         const file = e.target.files[0];
         setImageExp(file);
-        console.log(oggetto)
+       
     };
 
 

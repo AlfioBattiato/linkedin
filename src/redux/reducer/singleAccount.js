@@ -3,6 +3,7 @@ import { GET_FETCH } from "../action";
 import { PUT_FETCH } from "../action";
 import { PUT_IMG } from "../action";
 import { GET_ESPERIENZE } from "../action";
+import { GET_ALLPOST } from "../action";
 
 
 
@@ -10,6 +11,7 @@ const initialState = {
     apikey: [],
     utente: {},
     esperienze: [],
+    post: [],
     
 
 }
@@ -43,6 +45,11 @@ const singleAccount = function (state = initialState, action) {
             return {
                 ...state,
                 esperienze:action.payload
+            }
+        case GET_ALLPOST:
+            return {
+                ...state,
+                post:action.payload
             }
         default:
             return state;

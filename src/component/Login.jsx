@@ -3,7 +3,7 @@ import { Row, Col, Container } from "react-bootstrap";
 
 
 import { useDispatch } from "react-redux";
-import { getFetch, putToken } from "../redux/action";
+import { getAllPost, getFetch, putToken } from "../redux/action";
 import { useNavigate } from "react-router-dom";
 
 
@@ -17,8 +17,9 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
     if (token) {
       dispatch(putToken(token));
       dispatch(getFetch(token))
+      dispatch(getAllPost(token))
 
-      navigate("/Profilo")
+      navigate("/Home")
     }
   }, [token, dispatch]);
 

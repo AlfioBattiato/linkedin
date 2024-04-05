@@ -1,10 +1,46 @@
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Modal } from "react-bootstrap";
 import MyButton from "./MyButton";
 import { useDispatch, useSelector } from "react-redux";
+import Post from "./Post";
+import { useState } from "react";
+import { getAllPost, postaPost } from "../redux/action";
+
+
 
 
 function Home() {
   const utente = useSelector(state => state.utente);
+  const allpost = useSelector(state => state.post);
+  const token = useSelector(state => state.apikey[0]);
+  const [myPost, setMyPost] = useState({
+    "text": "Questo è un nuovo post", // L'unica proprietà richiesta!
+
+  })
+
+
+  const [imageExp, setImageExp] = useState(null);
+
+  const [showEsperienze, setShowEsperienze] = useState(false);
+  const dispatch = useDispatch()
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImageExp(file);
+  };
+
+  const postSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('post', imageExp);
+    if (imageExp) {
+      dispatch(postaPost(token, myPost, formData))
+    } else {
+      dispatch(postaPost(token, myPost))
+    }
+    alert("Post pubblicato");
+    setShowEsperienze(!showEsperienze);
+  }
+
 
   return (
     <>
@@ -95,10 +131,51 @@ function Home() {
                       height={"50rem"}
                       className="rounded-circle object-fit-cover"
                     />
-                    <button type="button" className=" flex-grow-1 border rounded-pill text-start">
+                    <button type="button" className=" flex-grow-1 border rounded-pill text-start"
+                      onClick={() => setShowEsperienze(!showEsperienze)}>
                       Avvia un post
                     </button>
                   </div>
+
+                  <Modal show={showEsperienze} onHide={() => setShowEsperienze(!showEsperienze)}>
+                    <Modal.Header closeButton>
+                      <Modal.Title>Crea un post</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                      <form onSubmit={postSubmit}>
+                        <div className="mb-3">
+                          <label htmlFor="avatar" className="form-label">Immagine</label>
+                          <br></br>
+                          <input type="file" id="avatar" accept="image/*" onChange={handleImageChange} />
+                        </div>
+                        <div className="mb-3">
+                          <label htmlFor="Titolo" className="form-label">post</label>
+                          <textarea type="text" className="form-control" id="Titolo"
+                            onChange={(e) => setMyPost({ ...myPost, text: e.target.value })} required />
+                        </div>
+
+
+                        <button type="submit" className="btn btn-primary">Posta</button>
+
+                      </form>
+
+                    </Modal.Body>
+                  </Modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                   <div className="d-flex mt-2 mb-2 justify-content-around ">
                     <div className="d-flex align-items-center ">
@@ -169,29 +246,14 @@ function Home() {
 
               {/* inizio post */}
               <Col xs={12}>
-                <Row className="gy-2">
-
-                  <Col xs={12} className="d-flex align-items-center gap-3  py-2 ">
-                    <div className="container bg-white hov py-2 rounded">
-                      <div className="d-flex gap-2 align-items-center">
-                        <img
-                          className="object-fit-cover rounded-circle"
-                          width={"40rem"}
-                          height={"40rem"}
-                          alt="img"
-                          src="https://plus.unsplash.com/premium_photo-1686244745070-44e350da9d37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWFufGVufDB8fDB8fHww"
-                        ></img>
-                        <p style={{ width: "70%" }} className="m-0 text-secondary sizeSmall">
-                          <strong>Denise Dimaio </strong>ha diffuso...
-                        </p>
-                        <p className="sizeSmall text-secondary m-0 ">2 ore </p>
-                      </div>
-                      <p className="pt-2 ">ciaoooooo</p>
-
-                    </div>
-                  </Col>
-
+                <Row className="">
+                  {allpost.length > 0 && (
+                    allpost.slice(-8).reverse().map((e, index) => (
+                      <Post key={index} username={e.username} text={e.text} createdAt={e.createdAt} image={e.image ? e.image : ""} imgP={e.user.image ? e.user.image : "https://www.shutterstock.com/image-illustration/user-avatar-icon-sign-profile-260nw-1182889762.jpg"}></Post>
+                    ))
+                  )}
                 </Row>
+
 
               </Col>
             </Row>
