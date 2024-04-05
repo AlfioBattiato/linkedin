@@ -249,7 +249,7 @@ function Home() {
                 <Row className="">
                   {allpost.length > 0 && (
                     allpost.slice(-8).reverse().map((e, index) => (
-                      <Post key={index} username={e.username} text={e.text} createdAt={e.createdAt} image={e.image ? e.image : ""} imgP={e.user.image ? e.user.image : "https://www.shutterstock.com/image-illustration/user-avatar-icon-sign-profile-260nw-1182889762.jpg"}></Post>
+                      <Post idPost={e._id} idUtente={e.user._id===utente._id?utente._id:NaN} key={index} username={e.username} text={e.text} createdAt={e.createdAt} image={e.image ? e.image : ""} imgP={e.user.image ? e.user.image : "https://www.shutterstock.com/image-illustration/user-avatar-icon-sign-profile-260nw-1182889762.jpg"}></Post>
                     ))
                   )}
                 </Row>

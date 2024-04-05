@@ -290,9 +290,7 @@ export const postaPost = (token, oggetto,formData) => {
                     throw new Error("Problema nella chiamata API");
                 }
             })
-            .then((obj) => {
-                console.log(obj)
-              
+            .then((obj) => {              
              if(formData){
                  dispatch(putImgPost(token,formData,obj._id));
              }else{
@@ -327,6 +325,60 @@ export const putImgPost = (token,formData,postid) => {
                 dispatch(getAllPost(token));})
 
             
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+
+    }
+}
+export const deletePost = (token, idPost) => {
+    return (dispatch, getState) => {
+
+        fetch(`https://striveschool-api.herokuapp.com/api/posts/${idPost}`, {
+            method: 'DELETE',
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
+            .then((response) => {
+                if (response.ok) {
+              
+                    alert("Post Rimosso")
+                    dispatch(getAllPost(token))
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .catch((error) => {
+                console.log("ERRORE", error);
+            });
+    }
+}
+export const modificaPost = (token, postid, oggetto,formData) => {
+    return (dispatch, getState) => {
+        fetch(`https://striveschool-api.herokuapp.com/api/posts/${postid}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body:JSON.stringify( oggetto)
+        })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error("Problema nella chiamata API");
+                }
+            })
+            .then((obj) => {
+              if(formData){
+                  dispatch(putImgPost(token,formData,postid))
+              }else{
+                dispatch(dispatch(getAllPost(token)))
+              }
+              alert("Post modificato")
+            })
             .catch((error) => {
                 console.log("ERRORE", error);
             });
