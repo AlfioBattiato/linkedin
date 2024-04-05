@@ -106,11 +106,11 @@ function Notifiche() {
                   role="none"
                   data-supported-dps="16x16"
                   fill="#000000"
-                  fill-opacity="0.9"
+                  fillOpacity="0.9"
                   width="16"
                   height="16"
                 >
-                  <path d="M8 11L3 6h10z" fill-rule="evenodd" fill-opacity="0.9"></path>
+                  <path d="M8 11L3 6h10z" fillRule="evenodd" fillOpacity="0.9"></path>
                 </svg>{" "}
               </p>
               <p className="mb-1 text-secondary">Opzioni per gli annunci pubblicitari </p>
@@ -124,11 +124,11 @@ function Notifiche() {
                   role="none"
                   data-supported-dps="16x16"
                   fill="#000000"
-                  fill-opacity="0.9"
+                  fillOpacity="0.9"
                   width="16"
                   height="16"
                 >
-                  <path d="M8 11L3 6h10z" fill-rule="evenodd" fill-opacity="0.9"></path>
+                  <path d="M8 11L3 6h10z" fillRule="evenodd" fillOpacity="0.9"></path>
                 </svg>
               </p>
               <p className="text-secondary"> Scarica l’app &nbsp;&nbsp;LinkedIn Altro</p>

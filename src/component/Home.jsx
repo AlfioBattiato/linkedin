@@ -144,7 +144,7 @@ function Home() {
                     <Modal.Body>
                       <form onSubmit={postSubmit}>
                         <div className="mb-3">
-                          <label htmlFor="avatar" className="form-label">
+                          <label htmlFor="avatar" ClassNameName="form-label">
                             Immagine
                           </label>
                           <br></br>
@@ -246,7 +246,7 @@ function Home() {
                 </Row>
                 <Row>
                   <Col>
-                  <h6 className="text-center rounded bg-white p-1 cursor" onClick={()=>setNumber(number+8)}>Mostra altro <i class="bi bi-caret-down-fill"></i></h6>
+                  <h6 className="text-center rounded bg-white p-1 cursor" onClick={()=>setNumber(number+8)}>Mostra altro <i className="bi bi-caret-down-fill"></i></h6>
                   </Col>
                 </Row>
               </Col>
@@ -274,7 +274,52 @@ function Home() {
                 <MyButton text={"50% di sconto"} colore={"outline-primary"}></MyButton>
               </div>
             </div>
+            <div className="text-center" style={{ fontSize: "12px", paddingTop: "2rem" }}>
+              <p className="mb-1 text-secondary"> Informazioni&nbsp;&nbsp; Accessibilità </p>
+              <p className="mb-1 text-secondary">
+                {" "}
+                Centro assistenza&nbsp;&nbsp; Privacy e condizioni
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="caret-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fillOpacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M8 11L3 6h10z" fillRule="evenodd" fillOpacity="0.9"></path>
+                </svg>{" "}
+              </p>
+              <p className="mb-1 text-secondary">Opzioni per gli annunci pubblicitari </p>
+              <p className="mb-1 text-secondary">
+                Pubblicità&nbsp;&nbsp; Servizi alle aziende{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="caret-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fillOpacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M8 11L3 6h10z" fillRule="evenodd" fillOpacity="0.9"></path>
+                </svg>
+              </p>
+              <p className="text-secondary"> Scarica l’app &nbsp;&nbsp;LinkedIn Altro</p>
+              <div>
+                <img src="../assets/linkedin.svg" alt="linkedin-logo" width={"56px"} />
+                LinkedIn Corporation © 2024
+              </div>
+            </div>
           </Col>
+ 
         </Row>
       </Container>
     </>
