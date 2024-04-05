@@ -26,26 +26,26 @@ function Lavoro() {
                       <div>
                         <img src="/assets/flag_my_jobs-1.svg" alt="" />
                       </div>
-                      <span className="t-black t-bold t-14 ms-2">My vacancies</span>
+                      <span className="t-black t-bold t-14 ms-2">Le mie offerte di lavoro</span>
                     </li>
 
                     <li className="d-flex mt-4">
                       <div>
                         <img src="/assets/list_favoriti.svg" alt="" />
                       </div>
-                      <span className="t-black t-bold t-14 ms-2">Preferences</span>
+                      <span className="t-black t-bold t-14 ms-2">Preferenze</span>
                     </li>
                     <li className="d-flex mt-4">
                       <div>
                         <img src="/assets/clipboard.svg" alt="" />
                       </div>
-                      <span className="t-black t-bold t-14 ms-2">Competency assessments</span>
+                      <span className="t-black t-bold t-14 ms-2">Valutazioni delle competenze</span>
                     </li>
                     <li className="d-flex mt-4 mb-2">
                       <div>
                         <img src="/assets/youtube_icon.svg" alt="" />
                       </div>
-                      <span className="t-black t-bold t-14 ms-2">Guidance for job seekers</span>
+                      <span className="t-black t-bold t-14 ms-2">Indicazioni per chi cerca lavoro</span>
                     </li>
                   </ul>
                 </div>
@@ -64,7 +64,7 @@ function Lavoro() {
                   style={{ color: "#0a66c2" }}
                   className="me-2 classe_teste_img_btn"
                 />
-                Post a vacancy for free
+                Pubblica offerta gratuita
               </button>
             </div>
           </Col>
@@ -76,7 +76,7 @@ function Lavoro() {
                   <div>
                     <div className="d-flex flex-column align-items-center pt-2 ps-2">
                       <div className="ex-1">
-                        <h5 className="t-black pt-1 t-bold">Recent job searches</h5>
+                        <h5 className="t-black pt-1 t-bold">Le principali offerte di lavoro per te</h5>
                       </div>
                     </div>
                     <div className="d-flex ps-2 ">
@@ -398,6 +398,50 @@ function Lavoro() {
               <div className="text-center">
                 <p className="text-center mt-3">50% di sconto su 2 mesi di Linkedln Premium!</p>
                 <MyButton text={"50% di sconto"} colore={"outline-primary"}></MyButton>
+              </div>
+            </div>
+            <div className="text-center" style={{ fontSize: "12px", paddingTop: "2rem" }}>
+              <p className="mb-1 text-secondary"> Informazioni&nbsp;&nbsp; Accessibilità </p>
+              <p className="mb-1 text-secondary">
+                {" "}
+                Centro assistenza&nbsp;&nbsp; Privacy e condizioni
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="caret-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fill-opacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M8 11L3 6h10z" fill-rule="evenodd" fill-opacity="0.9"></path>
+                </svg>{" "}
+              </p>
+              <p className="mb-1 text-secondary">Opzioni per gli annunci pubblicitari </p>
+              <p className="mb-1 text-secondary">
+                Pubblicità&nbsp;&nbsp; Servizi alle aziende{" "}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 16 16"
+                  id="caret-small"
+                  aria-hidden="true"
+                  role="none"
+                  data-supported-dps="16x16"
+                  fill="#000000"
+                  fill-opacity="0.9"
+                  width="16"
+                  height="16"
+                >
+                  <path d="M8 11L3 6h10z" fill-rule="evenodd" fill-opacity="0.9"></path>
+                </svg>
+              </p>
+              <p className="text-secondary"> Scarica l’app &nbsp;&nbsp;LinkedIn Altro</p>
+              <div>
+                <img src="../assets/linkedin.svg" alt="linkedin-logo" width={"56px"} />
+                LinkedIn Corporation © 2024
               </div>
             </div>
           </Col>

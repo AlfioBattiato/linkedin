@@ -5,23 +5,18 @@ import Post from "./Post";
 import { useState } from "react";
 import { getAllPost, postaPost } from "../redux/action";
 
-
-
-
 function Home() {
-  const utente = useSelector(state => state.utente);
-  const allpost = useSelector(state => state.post);
-  const token = useSelector(state => state.apikey[0]);
+  const utente = useSelector((state) => state.utente);
+  const allpost = useSelector((state) => state.post);
+  const token = useSelector((state) => state.apikey[0]);
   const [myPost, setMyPost] = useState({
-    "text": "Questo è un nuovo post", // L'unica proprietà richiesta!
-
-  })
-
+    text: "Questo è un nuovo post", // L'unica proprietà richiesta!
+  });
 
   const [imageExp, setImageExp] = useState(null);
 
   const [showEsperienze, setShowEsperienze] = useState(false);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -31,16 +26,15 @@ function Home() {
   const postSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append('post', imageExp);
+    formData.append("post", imageExp);
     if (imageExp) {
-      dispatch(postaPost(token, myPost, formData))
+      dispatch(postaPost(token, myPost, formData));
     } else {
-      dispatch(postaPost(token, myPost))
+      dispatch(postaPost(token, myPost));
     }
     alert("Post pubblicato");
     setShowEsperienze(!showEsperienze);
-  }
-
+  };
 
   return (
     <>
@@ -64,11 +58,13 @@ function Home() {
                 ></img>
               </div>
               <div className="border-bottom  text-center">
-                <h6 style={{ paddingTop: "4rem" }}>{utente.name} {utente.surname}</h6>
+                <h6 style={{ paddingTop: "4rem" }}>
+                  {utente.name} {utente.surname}
+                </h6>
                 <p className="sizeSmall text-secondary">Digital Marketing Manager presso Automotive</p>
               </div>
-              <div className="border-bottom p-3" >
-                <p className="sizeSmall text-secondary m-0 d-flex " >
+              <div className="border-bottom p-3">
+                <p className="sizeSmall text-secondary m-0 d-flex ">
                   Visitatori del profilo <span className="text-primary ms-auto">96</span>
                 </p>
 
@@ -76,7 +72,7 @@ function Home() {
                   Impressioni del post <span className="text-primary ms-auto">258</span>
                 </p>
               </div>
-              <div className=" border-bottom ps-2" >
+              <div className=" border-bottom ps-2">
                 <p className="sizeSmall text-secondary ps-1">Accedi a strumenti e informazioni in esclusiva</p>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -131,8 +127,11 @@ function Home() {
                       height={"50rem"}
                       className="rounded-circle object-fit-cover"
                     />
-                    <button type="button" className=" flex-grow-1 border rounded-pill text-start"
-                      onClick={() => setShowEsperienze(!showEsperienze)}>
+                    <button
+                      type="button"
+                      className=" flex-grow-1 border rounded-pill text-start"
+                      onClick={() => setShowEsperienze(!showEsperienze)}
+                    >
                       Avvia un post
                     </button>
                   </div>
@@ -144,38 +143,31 @@ function Home() {
                     <Modal.Body>
                       <form onSubmit={postSubmit}>
                         <div className="mb-3">
-                          <label htmlFor="avatar" className="form-label">Immagine</label>
+                          <label htmlFor="avatar" className="form-label">
+                            Immagine
+                          </label>
                           <br></br>
                           <input type="file" id="avatar" accept="image/*" onChange={handleImageChange} />
                         </div>
                         <div className="mb-3">
-                          <label htmlFor="Titolo" className="form-label">post</label>
-                          <textarea type="text" className="form-control" id="Titolo"
-                            onChange={(e) => setMyPost({ ...myPost, text: e.target.value })} required />
+                          <label htmlFor="Titolo" className="form-label">
+                            post
+                          </label>
+                          <textarea
+                            type="text"
+                            className="form-control"
+                            id="Titolo"
+                            onChange={(e) => setMyPost({ ...myPost, text: e.target.value })}
+                            required
+                          />
                         </div>
 
-
-                        <button type="submit" className="btn btn-primary">Posta</button>
-
+                        <button type="submit" className="btn btn-primary">
+                          Posta
+                        </button>
                       </form>
-
                     </Modal.Body>
                   </Modal>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                   <div className="d-flex mt-2 mb-2 justify-content-around ">
                     <div className="d-flex align-items-center ">
@@ -240,8 +232,6 @@ function Home() {
                     </div>
                   </div>
                 </div>
-
-
               </Col>
 
               {/* inizio post */}
@@ -253,8 +243,6 @@ function Home() {
                     ))
                   )}
                 </Row>
-
-
               </Col>
             </Row>
           </Col>

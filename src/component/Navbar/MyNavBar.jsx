@@ -163,10 +163,15 @@ function MyNavBar() {
                           <p className="my-1  text-secondary">Account per la pubblicazione di off...</p>
                         </div>
                         <div className="px-4  pt-2">
-                          <p className="text-decoration-none text-secondary" onClick={()=>
-                         { setShow(!show)
-                          navigate("/")}
-                          }>Exit</p> 
+                          <p
+                            className="text-decoration-none text-secondary sizeSmall"
+                            onClick={() => {
+                              setShow(!show);
+                              navigate("/");
+                            }}
+                          >
+                            Esci
+                          </p>
                         </div>
                       </div>
                     </Dropdown.Menu>
