@@ -23,6 +23,10 @@
 #home_icon_nav:hover {
   color: black !important;
 }
+.linkato:hover{
+  cursor: pointer;
+  color: rgb(7, 117, 243)!important;
+}
 .sixnavbar{
   font-size: 12px;
 }

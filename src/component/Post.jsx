@@ -72,7 +72,7 @@ function Post(props) {
                             <div className="mb-3">
                                 <label htmlFor="Titolo" className="form-label">post</label>
                                 <textarea type="text" className="form-control" id="Titolo"
-                                    onChange={(e) => setMyPost({ ...myPost, text: e.target.value })} required />
+                                    onChange={(e) => setMyPost({ ...myPost, text: e.target.value })}  />
                             </div>
 
 
