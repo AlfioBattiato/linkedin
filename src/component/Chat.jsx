@@ -8,10 +8,6 @@ function Chat() {
   const [show, setShow] = useState("hidden");
   const location = useLocation();
 
-
-
-  
-
   return (
     <>
       {location.pathname === "/" ? (
@@ -67,14 +63,14 @@ function Chat() {
                 <Col xs={3} className="">
                   <button type="button" className=" position-relative p-0 border-0 bg-white d-flex ">
                     <img
-                    src={
-                      "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-                    }
-                    alt="avatar"
-                    width={"50rem"}
-                    height={"50rem"}
-                    className="rounded-circle object-fit-cover"
-                  />
+                      src={
+                        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                      }
+                      alt="avatar"
+                      width={"50rem"}
+                      height={"50rem"}
+                      className="rounded-circle object-fit-cover"
+                    />
                     <span className="position-absolute  translate-middle badge border border-light rounded-circle pallino">
                       <span className="visually-hidden">unread messages</span>
                     </span>
@@ -87,21 +83,23 @@ function Chat() {
                       Marta Bianchi <span className="text-secondary ms-auto sizeSmall">7 feb</span>
                     </h6>
                   </div>
-                  <p className="sizeSmall m-0 border-bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p className="sizeSmall m-0 border-bottom">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
                 </Col>
               </div>
               <div className="row mb-1 align-items-center gx-0 w-100">
                 <Col xs={3} className="">
                   <button type="button" className=" position-relative p-0 border-0 bg-white d-flex ">
                     <img
-                    src={
-                      "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
-                    }
-                    alt="avatar"
-                    width={"50rem"}
-                    height={"50rem"}
-                    className="rounded-circle object-fit-cover"
-                  />
+                      src={
+                        "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG1hbnxlbnwwfHwwfHx8MA%3D%3D"
+                      }
+                      alt="avatar"
+                      width={"50rem"}
+                      height={"50rem"}
+                      className="rounded-circle object-fit-cover"
+                    />
                     <span className="position-absolute  translate-middle badge border border-light rounded-circle pallino">
                       <span className="visually-hidden">unread messages</span>
                     </span>
@@ -111,19 +109,18 @@ function Chat() {
                 <Col xs={9} style={{ marginTop: "10px" }}>
                   <div>
                     <h6 className="m-0 d-flex">
-                      Marta Bianchi <span className="text-secondary ms-auto sizeSmall">7 feb</span>
+                      Marta Bianchi <span className="text-secondary ms-auto sizeSmall">7 feb </span>
                     </h6>
                   </div>
-                  <p className="sizeSmall m-0 border-bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                  <p className="sizeSmall m-0 border-bottom">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  </p>
                 </Col>
               </div>
-
-           
             </Container>
           </div>
-        </div >
-      )
-      }
+        </div>
+      )}
     </>
   );
 }
