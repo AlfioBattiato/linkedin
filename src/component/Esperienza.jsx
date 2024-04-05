@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Col, Modal } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { deleteExperience, putEsperienza } from "../redux/action";
@@ -10,6 +10,11 @@ function Esperienza(props) {
     const [oggetto, setOggetto] = useState(props.oggetto)
     const [yearS, monthS, dayS] = props.dataS.split("T")[0].split("-");
     const [yearE, monthE, dayE] = props.dataE.split("T")[0].split("-");
+
+
+    useEffect(() => {
+        setOggetto(props.oggetto)
+    }, [props.oggetto]);
 
     // invio form
     const esperienzaSubmit = (e) => {

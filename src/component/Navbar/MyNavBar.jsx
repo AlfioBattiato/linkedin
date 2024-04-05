@@ -163,7 +163,10 @@ function MyNavBar() {
                           <p className="my-1  text-secondary">Account to announce jobs</p>
                         </div>
                         <div className="px-4  pt-2">
-                          <Link to={"/"} className="text-decoration-none text-secondary">Exit</Link>
+                          <p className="text-decoration-none text-secondary" onClick={()=>
+                         { setShow(!show)
+                          navigate("/")}
+                          }>Exit</p> 
                         </div>
                       </div>
                     </Dropdown.Menu>

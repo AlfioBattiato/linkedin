@@ -14,8 +14,9 @@ function Profilo() {
 
     const utente = useSelector(state => state.utente);
     const token = useSelector(state => state.apikey[0]);
-    const allEsperienze = useSelector(state => state.esperienze);
+    const reduxEsperienze = useSelector(state => state.esperienze);
     const [account, setAccount] = useState(utente);
+    // const [allEsperienze, setAllEsperienze] = useState(reduxEsperienze);
     const [show, setShow] = useState(false);
     const [showEsperienze, setShowEsperienze] = useState(false);
     const [imageExp, setImageExp] = useState(null);
@@ -29,7 +30,9 @@ function Profilo() {
             "description": "Implementing new features",
             "area": "Milan",
         });
-
+// useEffect(()=>{
+//     setAllEsperienze(reduxEsperienze)
+// },[reduxEsperienze])
 
     const dispatch = useDispatch();
     const handleClose = () => setShow(false);
@@ -227,8 +230,8 @@ function Profilo() {
                                 </Modal>
                                 <Row className="">
                                     {/* genera esperienze */}
-                                    {allEsperienze.length > 0 && (allEsperienze.map((e, index) => 
-                                        <Esperienza oggetto={e} idUtente={utente._id} token={token} id={e._id}  key={index} img={e.image} title={e.role} dataS={e.startDate} dataE={e.endDate} luogo={e.area} competenze={e.description}  ></Esperienza>
+                                    {reduxEsperienze.length > 0 && (reduxEsperienze.map((e, index) => 
+                                        <Esperienza oggetto={e} idUtente={utente._id} token={token} id={e._id}  key={e._id} img={e.image} title={e.role} dataS={e.startDate} dataE={e.endDate} luogo={e.area} competenze={e.description}  ></Esperienza>
                                     ))}
 
                                 </Row>

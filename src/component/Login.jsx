@@ -18,6 +18,7 @@ function Login({ isLoggedIn, setIsLoggedIn }) {
       dispatch(putToken(token));
       dispatch(getFetch(token))
       dispatch(getAllPost(token))
+      
 
       navigate("/Home")
     }
