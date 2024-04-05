@@ -2,21 +2,18 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "./navbar.css";
-import { Form, Dropdown, Button, } from "react-bootstrap";
+import { Form, Dropdown, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-
 function MyNavBar() {
-  const utente = useSelector(state => state.utente);
-  const [show, setShow] = useState(false)
-  const navigate = useNavigate()
+  const utente = useSelector((state) => state.utente);
+  const [show, setShow] = useState(false);
+  const navigate = useNavigate();
   const toggleDropdown = () => {
-
-    setShow(!show)
-  }
-
+    setShow(!show);
+  };
 
   return (
     // {/* ////////////////////////////////////NAVBAR BEGINNING ////////////////////////////////////////// */}
@@ -60,7 +57,7 @@ function MyNavBar() {
                     type="text"
                     placeholder="Cerca"
                     className="d-none d-lg-block research_input_form_navbar pe-0"
-                    style={{ width: "80%", paddingLeft: "1.8rem" ,height:"50%" }}
+                    style={{ width: "80%", paddingLeft: "1.8rem", height: "50%" }}
                   />
                 </div>
                 {/* ////////////////////////////////////LINK HOME ////////////////////////////////////////// */}
@@ -74,34 +71,35 @@ function MyNavBar() {
                 <div className="icons_navbar">
                   <Nav.Link href="/Rete" className="p-0">
                     <img src="/assets/people.svg" alt="network_icon" />
-                    <p className="d-none d-md-block m-0 sixnavbar">Network</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Rete</p>
                   </Nav.Link>
                 </div>
                 {/* ///////FINO LINK NETWORK ////////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_jobs_navbar">
                   <Nav.Link href="/Lavoro" className="p-0 ">
                     <img src="/assets/work.svg" alt="jobs_icon" />
-                    <p className="d-none d-md-block m-0 sixnavbar" >Jobs</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Lavoro</p>
                   </Nav.Link>
                 </div>
                 {/* ///////FINO LINK JOBS ////////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_messages_navbar">
                   <Nav.Link href="/Messagistica" className="p-0">
                     <img src="/assets/message.svg" alt="messages_icon" />
-                    <p className="d-none d-md-block m-0 sixnavbar">Messages</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Messaggistica</p>
                   </Nav.Link>
                 </div>
                 {/* ///FINO LINK MESSAGES ////////////////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_bell_navbar">
                   <Nav.Link href="/Notifiche" className="p-0">
                     <img src="/assets/campana.svg" alt="notification_icon" />
-                    <p className="d-none d-md-block m-0 sixnavbar">Notifications</p>
+                    <p className="d-none d-md-block m-0 sixnavbar">Notifiche</p>
                   </Nav.Link>
                 </div>
                 {/* ///////FINO LINK NOTIFICATIONS//////////////////////////////////////////////////////////// */}
                 <div className="icons_navbar icon_profile_navbar">
                   <img
-                    src={utente.image} alt="profile_picture"
+                    src={utente.image}
+                    alt="profile_picture"
                     width={"25px"}
                     height={"25px"}
                     className="image_dropdown_navbar object-fit-cover"
@@ -119,7 +117,7 @@ function MyNavBar() {
                     </Dropdown.Toggle>
                     <Dropdown.Menu
                       className={`position-absolute`}
-                      style={{ right: 10, left: -255, top: 24, bottom: 0, height: "23rem", width: "18rem" }}
+                      style={{ right: 10, left: -255, top: 24, bottom: 0, height: "21rem", width: "18rem" }}
                       show={show}
                     >
                       <div style={{ width: "18rem" }}>
@@ -141,29 +139,33 @@ function MyNavBar() {
                           </div>
                         </div>
                         <div className="px-4 border-bottom pb-2">
-
-                          <Button variant="outline-primary" className="sizeSmall rounded-pill fw-semibold py-1 w-100" onClick={() => {
-                            toggleDropdown()
-                            navigate("/Profilo")
-                          }
-                          }
-                          >Visualizza profilo</Button>
-
+                          <Button
+                            variant="outline-primary"
+                            className="sizeSmall rounded-pill fw-semibold py-1 w-100"
+                            onClick={() => {
+                              toggleDropdown();
+                              navigate("/Profilo");
+                            }}
+                          >
+                            Visualizza profilo
+                          </Button>
                         </div>
-                        <div className="px-4 border-bottom">
+                        <div className="px-4 border-bottom sizeSmall">
                           <h6>Account</h6>
-                          <p className="my-1  text-secondary">Privacy Configuration</p>
-                          <p className="my-1  text-secondary">Help</p>
-                          <p className="my-1  text-secondary">Language</p>
+                          <p className="my-1  text-secondary">Impostazioni e privacy</p>
+                          <p className="my-1  text-secondary">Guida</p>
+                          <p className="my-1  text-secondary">Lingua</p>
                         </div>
 
-                        <div className="px-4 border-bottom pt-2">
-                          <h6>Settings</h6>
-                          <p className="my-1  text-secondary">Publications and Activities</p>
-                          <p className="my-1  text-secondary">Account to announce jobs</p>
+                        <div className="px-4 border-bottom pt-2 sizeSmall">
+                          <h6>Gestisci</h6>
+                          <p className="my-1  text-secondary">Post e attività</p>
+                          <p className="my-1  text-secondary">Account per la pubblicazione di off...</p>
                         </div>
-                        <div className="px-4  pt-2">
-                          <Link to={"/"} className="text-decoration-none text-secondary">Exit</Link>
+                        <div className="px-4  pt-2 sizeSmall">
+                          <Link to={"/"} className="text-decoration-none text-secondary">
+                            Esci
+                          </Link>
                         </div>
                       </div>
                     </Dropdown.Menu>
