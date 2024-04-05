@@ -179,7 +179,7 @@ function Profilo() {
                   </Modal>
                 </>
                 <div className="mt-5 pt-5 px-4">
-                  <div className="d-flex">
+                  <div className="d-flex align-items-center">
                     <h4 className="mb-0">
                       {utente !== undefined ? (
                         utente.name + " " + utente.surname
