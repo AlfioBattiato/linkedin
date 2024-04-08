@@ -11,12 +11,14 @@ import MyNavBar from "./component/Navbar/MyNavBar";
 import Login from "./component/Login";
 import Footer from "./component/Footer";
 import Chat from "./component/Chat";
+import Navbar2 from "./component/Navbar2";
 
 function App() {
   return (
     <div className="position-relative">
       <BrowserRouter>
         <MyNavBar></MyNavBar>
+        {/* <Navbar2></Navbar2> */}
         <Routes>
           <Route path="/Home" element={<Home />} />
           <Route path="/Lavoro" element={<Lavoro />} />
